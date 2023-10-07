@@ -1,23 +1,28 @@
 using System;
+using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 
 namespace journal;
 class Menu
 {
-    public string Read_file()
+    public List<string> Read_file()
     {
         /*
         
         */
-        filepath = ;
-        string[] lines = System.IO.File.ReadAllLines(file);
-        List<string> journal_history = new List<string>();
-        foreach(string line in lines)
+        string file = "journal.csv";
+        StreamReader sr = new StreamReader(file);
+        List<string> saved_entries = new List<string>();
+        using(sr)
         {
-            string[] places = line.Split(",");
-            journal_history.Add(places);
+            while (!sr.EndOfStream)
+            {
+                var line = sr.ReadLine();
+                saved_entries.Add(line);
+            }
         }
-        return "";
+        return saved_entries;
     }
 
     public void Save_text()
@@ -25,6 +30,15 @@ class Menu
         /*
         
         */
+        try
+        {
+            File.AppendAllText(file, output.ToString());
+        }
+        catch(Exception)
+        {
+            Console.WriteLine("Data could not be written to the CSV file.");
+            return;
+        }
     }
 
     public string Reload_text()
@@ -35,14 +49,15 @@ class Menu
         return "";
     }
 
-    public void Display_text()
+    public void Display_text(List<string> saved_entries)
     {
         /*
         
         */
-        foreach(Entry in entry)
+        int amount = saved_entries.Count;
+        for(int i = 0; i <amount; i++)
         {
-            Console.WriteLine
+            Console.WriteLine(saved_entries[i]);
         }
     }
 }
