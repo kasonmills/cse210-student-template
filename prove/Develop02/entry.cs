@@ -5,7 +5,7 @@ namespace journal;
 
 class Entry
 {
-    public List<string> Get_prompt()
+    public string Get_prompt()
     {
         List<string> prompts = new List<string>();
         prompts.Add("Who was the most interesting person I interacted with today?");
@@ -13,20 +13,20 @@ class Entry
         prompts.Add("How did I see the hand of the Lord in my life today?");
         prompts.Add("What was the strongest emotion I felt today?");
         prompts.Add("If I had one thing I could do over today, what would it be?");
-        return prompts;
-    }
-
-    public List<string> Create_entry(string longDateValue, List<string> prompts)
-    {
         Random random = new Random();
         int selection = random.Next(0,4);
         string a_prompt = prompts[selection];
-        List<string> entry = new List<string>();
-        entry.Add(longDateValue);
-        entry.Add(a_prompt);
+        return a_prompt;
+    }
+
+    public List<string> Create_entry(string longDateValue, string a_prompt)
+    {
+        List<string> new_entry = new List<string>();
+        new_entry.Add(longDateValue);
+        new_entry.Add(a_prompt);
         string input_entry = Console.ReadLine();
-        entry.Add(input_entry);
-        return entry;
+        new_entry.Add(input_entry);
+        return new_entry;
     }
 
     public string Get_date()
