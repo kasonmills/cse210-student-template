@@ -15,17 +15,18 @@ class Menu
         string longDateValue = entry.Get_date();
         string a_prompt = entry.Get_prompt();
         List<string> new_entry = entry.Create_entry(longDateValue,a_prompt);
-        string file = "journal.csv";
+        string file = Get_file_name();
         List<string> saved_entries = new List<string>();
-        Display_Menu();
         string typed = Console.ReadLine();
         int option = int.Parse(typed);
         while (option != 6)
         {
+            Display_Menu();
             if (option == 1)
             {
                 a_prompt = "";
                 entry.Create_entry(longDateValue, a_prompt);
+                Save_text(file, saved_entries);
             }
             else if (option == 2)
             {
@@ -37,6 +38,7 @@ class Menu
             }
             else if (option == 4)
             {
+                Get_file_name();
                 Read_file(file, saved_entries);
                 Display_text(saved_entries);
             }
@@ -44,7 +46,10 @@ class Menu
             {
                 entry.Create_entry(longDateValue, a_prompt);
             }
-            Display_Menu();
+            else
+            {
+                break;
+            }
         }
         Read_file(file, saved_entries);
         Save_text(file, new_entry);
@@ -102,5 +107,12 @@ class Menu
         {
             Console.WriteLine(saved_entries[i]);
         }
+    }
+
+    public string Get_file_name()
+    {
+        Console.WriteLine("What file are you working with?");
+        string file = Console.ReadLine();
+        return file;
     }
 }

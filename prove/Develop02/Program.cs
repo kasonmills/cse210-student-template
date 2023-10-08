@@ -7,6 +7,7 @@ class Program
     {
         Console.WriteLine("Hello Develop02 World!");
         Menu menu = new Menu();
+        menu.Display_Menu();
         menu.Controller();
         
     }
