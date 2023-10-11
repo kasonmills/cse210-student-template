@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.ComponentModel.Design;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
@@ -17,43 +18,45 @@ class Menu
         List<string> new_entry = entry.Create_entry(longDateValue,a_prompt);
         string file = Get_file_name();
         List<string> saved_entries = new List<string>();
-        string typed = Console.ReadLine();
-        int option = int.Parse(typed);
-        while (option != 6)
-        {
+        int option = Get_option();
             Display_Menu();
-            if (option == 1)
+            switch(option)
             {
-                a_prompt = "";
-                entry.Create_entry(longDateValue, a_prompt);
-                Save_text(file, saved_entries);
+                case 1:
+                    a_prompt = "";
+                    entry.Create_entry(longDateValue, a_prompt);
+                    Save_text(file, saved_entries);
+                    break;
+            
+                case 2:
+                    Display_text(saved_entries);
+                    break;
+                case 3:
+                    Save_text(file, new_entry);
+                    break;
+                case 4:
+                    Get_file_name();
+                    Read_file(file, saved_entries);
+                    Display_text(saved_entries);
+                    break;
+            
+                case 5:
+                    entry.Create_entry(longDateValue, a_prompt);
+                    break;
+                default:
+                    Display_Menu();
+                    break;
             }
-            else if (option == 2)
-            {
-                Display_text(saved_entries);
-            }
-            else if (option == 3)
-            {
-                Save_text(file, new_entry);
-            }
-            else if (option == 4)
-            {
-                Get_file_name();
-                Read_file(file, saved_entries);
-                Display_text(saved_entries);
-            }
-            else if (option == 5)
-            {
-                entry.Create_entry(longDateValue, a_prompt);
-            }
-            else
-            {
-                break;
-            }
-        }
         Read_file(file, saved_entries);
         Save_text(file, new_entry);
 
+    }
+
+    int Get_option()
+    {
+        string typed = Console.ReadLine();
+        int option = int.Parse(typed);
+        return option;
     }
     public List<string> Read_file(string file, List<string> saved_entries)
     {

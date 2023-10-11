@@ -22,11 +22,17 @@ class Entry
     public List<string> Create_entry(string longDateValue, string a_prompt)
     {
         List<string> new_entry = new List<string>();
+        string input_entry = Write_entry();
         new_entry.Add(longDateValue);
         new_entry.Add(a_prompt);
-        string input_entry = Console.ReadLine();
         new_entry.Add(input_entry);
         return new_entry;
+    }
+
+    public string Write_entry()
+    {
+        string input_entry = Console.ReadLine();
+        return input_entry;
     }
 
     public string Get_date()
