@@ -12,35 +12,39 @@ class Menu
 
     public void Controller()
     {
-        Entry entry = new Entry();
-        string longDateValue = entry.Get_date();
-        string a_prompt = entry.Get_prompt();
-        List<string> new_entry = entry.Create_entry(longDateValue,a_prompt);
+        Display_Menu();
+        int option = Get_option();
         string file = Get_file_name();
         List<string> saved_entries = new List<string>();
-        int option = Get_option();
-            Display_Menu();
+        //while loop here
             switch(option)
             {
                 case 1:
+                    Entry entry = new Entry();
+                    string longDateValue = entry.Get_date();
+                    string a_prompt = entry.Get_prompt();
                     a_prompt = "";
-                    entry.Create_entry(longDateValue, a_prompt);
-                    Save_text(file, saved_entries);
+                    List<string> new_entry = entry.Create_entry(longDateValue,a_prompt);
+                    Save_text(file, new_entry);
                     break;
             
                 case 2:
+                //repeat parts in case one here
                     Display_text(saved_entries);
                     break;
                 case 3:
+                //repeat parts in case one here
                     Save_text(file, new_entry);
                     break;
                 case 4:
+                //repeat parts in case one here
                     Get_file_name();
                     Read_file(file, saved_entries);
                     Display_text(saved_entries);
                     break;
             
                 case 5:
+                //repeat parts in case one here
                     entry.Create_entry(longDateValue, a_prompt);
                     break;
                 default:
@@ -104,7 +108,7 @@ class Menu
         /*
         
         */
-        Console.WriteLine("Here is your jouranl entries");
+        Console.WriteLine("Here is your journal entries");
         int amount = saved_entries.Count;
         for(int i = 0; i < amount; i++)
         {
