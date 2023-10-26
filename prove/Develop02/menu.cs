@@ -12,47 +12,57 @@ class Menu
 
     public void Controller()
     {
-        Display_Menu();
-        int option = Get_option();
-        string file = Get_file_name();
-        List<string> saved_entries = new List<string>();
+        List<string> saved_entries;
+        List<string> new_entry;
+        Entry entry;
+        bool active = true;
         //while loop here
+        while (active)
+        {
+            Display_Menu();
+            int option = Get_option();
+            saved_entries = new List<string>();
+            new_entry = new List<string>();
+            entry = new Entry();
             switch(option)
             {
                 case 1:
-                    Entry entry = new Entry();
                     string longDateValue = entry.Get_date();
-                    string a_prompt = entry.Get_prompt();
-                    a_prompt = "";
-                    List<string> new_entry = entry.Create_entry(longDateValue,a_prompt);
+                    string a_prompt = "";
+                    string file = Get_file_name();
+                    new_entry = entry.Create_entry(longDateValue,a_prompt);
                     Save_text(file, new_entry);
                     break;
             
                 case 2:
                 //repeat parts in case one here
+                    Read_file(Get_file_name(), saved_entries);
                     Display_text(saved_entries);
                     break;
                 case 3:
                 //repeat parts in case one here
-                    Save_text(file, new_entry);
+                    //Save_text(file, new_entry);
                     break;
                 case 4:
                 //repeat parts in case one here
-                    Get_file_name();
-                    Read_file(file, saved_entries);
+                    Read_file(Get_file_name(), saved_entries);
                     Display_text(saved_entries);
                     break;
             
                 case 5:
                 //repeat parts in case one here
-                    entry.Create_entry(longDateValue, a_prompt);
+                    Console.WriteLine(entry.Get_prompt());
+                    break;
+                case 6:
+                    active = false;
                     break;
                 default:
-                    Display_Menu();
+                    
                     break;
             }
-        Read_file(file, saved_entries);
-        Save_text(file, new_entry);
+        }
+        //Read_file(file, saved_entries);
+        //Save_text(file, new_entry);
 
     }
 

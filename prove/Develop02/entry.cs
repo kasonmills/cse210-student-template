@@ -21,11 +21,11 @@ class Entry
 
     public List<string> Create_entry(string longDateValue, string a_prompt)
     {
+        // make this method an array instead of a list method?
         List<string> new_entry = new List<string>();
-        string input_entry = Write_entry();
         new_entry.Add(longDateValue);
         new_entry.Add(a_prompt);
-        new_entry.Add(input_entry);
+        new_entry.Add(Write_entry());
         return new_entry;
     }
 
