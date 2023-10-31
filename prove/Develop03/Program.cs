@@ -8,7 +8,13 @@ class Program
     {
         Console.WriteLine("Hello Develop03 World!");
         Scripture scripture = new Scripture();
-        scripture.Display_scripture();
-        scripture.Display_modified_scripture();
+        DisplayManager displayManager = new DisplayManager();
+        /*
+        this method will execute other commands needed in this class
+        */
+        List<string> verse = scripture.getScripture();
+        List<string> references = scripture.getReference();
+        displayManager.displayScripture(verse, references);
+        displayManager.keepGoing(verse, references);
     }
 }
