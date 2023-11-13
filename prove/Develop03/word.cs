@@ -22,7 +22,6 @@ public class Word
         bool finished = false;
         for (int i = 0; i < 3; i++)
         {
-            
             int replace = rnd.Next(0, lenOfScripture);
             while(verse[replace].Contains('_')){
                 replace = rnd.Next(0, lenOfScripture);
