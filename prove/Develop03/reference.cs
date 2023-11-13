@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace memorizer;
 
@@ -21,13 +20,13 @@ public class DisplayManager
         I want to make this so that it will display the replaced words as well as
         the remaining words
         */
-        int am = verse.Count;
-
+        string display = "";
         Console.WriteLine(references[0]);
-        for (int i = 0; i < am; i++)
+        foreach(string entry in verse)
         {
-            Console.WriteLine(verse[i]);
+            display += entry + " ";
         }
+        Console.WriteLine(display);
     }
 
     public void keepGoing(List<string> verse, List<string> references)
@@ -38,14 +37,17 @@ public class DisplayManager
         with dashes and then display the new scripture with the dashes set up in there.
         */
         Console.WriteLine("Press enter to continue or q to quit");
-        while(Console.ReadLine() !="q")
+        string input;
+        bool allBlanks = false;
+        do
         {
-            if(Console.ReadLine() == "\n")
+            input = Console.ReadLine();
+            
             {
                 Console.Clear();
-                verse = word.selectWords(verse);
+                verse = word.selectWords(verse, ref allBlanks);
                 displayScripture(verse, references);
             }
-        }
+        }while(input !="q" && !allBlanks);
     }
 }

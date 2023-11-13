@@ -1,5 +1,6 @@
 using System;
-using mindfulness;
+
+namespace mindfulness;
 
 class Program
 {

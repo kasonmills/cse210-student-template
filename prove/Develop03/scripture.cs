@@ -10,7 +10,10 @@ class Scripture
     */
 
     List<string> references = new List<string>();
-    List<string> verse = new List<string>
+    
+public List<string> getScripture()
+{
+     List<string> verse = new List<string>
         {
             "and",
             "it",
@@ -69,9 +72,7 @@ class Scripture
             "commandeth",
             "them",
     };
-public List<string> getScripture()
-{
-    List<string> verse = new List<string>();
+    Console.WriteLine(verse);
     return verse;
 }
 public List<string> getReference()
