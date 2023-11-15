@@ -10,22 +10,39 @@ class Activity
     private string _name;
     private int _duration;
     private DateOnly _startTime;
-    public string ShowStartMessage(_duration)
+    public void DisplayStartMessage(string _name)
     {
-        return "";
+        // this method might need to pass the different names of the activities into it
+        Console.WriteLine($"Welcome to the {_name} activity");
     }
 
-    public void ShowEndMessage()
+    protected int SetTotalDuration(string _name)
     {
-
+        Console.WriteLine($"How long would you like the {_name} activity to last?");
+        string option = Console.ReadLine();
+        _duration = int.Parse(option);
+        return _duration;
     }
 
-    protected void ShowMessagePause(string, animationType, interval)
+    protected int GetIntervals()
     {
-
+        Console.WriteLine("How long would you like the intervals to be?");
+        string length = Console.ReadLine();
+        int interval = int.Parse(length);
+        return interval;
     }
 
-    private void ShowAnimations(animationType, interval)
+    public void ShowEndMessage(string _name)
+    {
+        Console.WriteLine($"Good Job! You completed the {_name} activity!");
+    }
+
+    protected void ShowMessagePause(string animationType, int interval)
+    {
+        DisplayAnimations(animationType, interval);
+    }
+
+    private void DisplayAnimations(string animationType, int interval)
     {
         /*
         this method needs to do either two or three options with the displaying the right animation it needs to either display a timer or
@@ -35,16 +52,39 @@ class Activity
         {
             case "countdown":
             {
-                int count;
                 for(interval; interval > 0; interval--)
                 {
-                    
+                    Console.Write(interval);
+
+                    Thread.Sleep(1000);
+
+                    Console.Write("\b \b");
                 }
                 break;
             }
             case "spinner":
             {
+                for (int i = 3; i > 0; i--)
+                {
+                    Console.Write("+");
+
+                    Thread.Sleep(500);
+
+                    Console.Write("\b \b"); // Erase the + character
+                    Console.Write("-"); // Replace it with the - character
+                    Thread.Sleep(500);
+                    Console.Write("\b \b");
+                }
+                
                 break;
+            }
+            case "buffer":
+            {
+                for(int i = 3; i >0; i--)
+                {
+                    Console.Write(".");
+                    Thread.Sleep(1000);
+                }
             }
             default:
             {
