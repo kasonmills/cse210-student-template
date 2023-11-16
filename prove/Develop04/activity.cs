@@ -14,6 +14,10 @@ class Activity
     {
         // this method might need to pass the different names of the activities into it
         Console.WriteLine($"Welcome to the {_name} activity");
+        Thread.Sleep(1000);
+        Console.WriteLine("Prepare yourself.");
+        Console.WriteLine("The activity will begin soon.");
+
     }
 
     protected int SetTotalDuration(string _name)
@@ -26,20 +30,30 @@ class Activity
 
     protected int GetIntervals()
     {
-        Console.WriteLine("How long would you like the intervals to be?");
+        Console.WriteLine("How many seconds would you like the intervals to be?");
         string length = Console.ReadLine();
         int interval = int.Parse(length);
         return interval;
     }
 
-    public void ShowEndMessage(string _name)
+    public void ShowEndMessage(string _name, int _duration)
     {
+        Console.WriteLine("Finished");
+        Thread.Sleep(1000);
         Console.WriteLine($"Good Job! You completed the {_name} activity!");
+        Thread.Sleep(1000);
+        Console.WriteLine($"The activity lasted {_duration} seconds.");
     }
 
-    protected void ShowMessagePause(string animationType, int interval)
+    protected void SelectAnimation(int interval)
     {
-        DisplayAnimations(animationType, interval);
+        /*
+        this method needs to evalulate which animation to show. it needs to work with all three of the child classes so they can
+        evalulate for their needs. I need a switch case most likely need to know which activity is running and which animation matters
+        in that moment. this method will likely be called multiple times to make it the most useful in the different situations.
+        */
+        
+        DisplayAnimations("", interval);
     }
 
     private void DisplayAnimations(string animationType, int interval)
