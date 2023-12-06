@@ -9,9 +9,22 @@ class Program
         Console.WriteLine("Hello Foundation1 World!");
         Video video = new Video();
         Comment comment = new Comment();
-        video.CreateNewVideo();
-        comment.CreateNewComment();
-        Console.WriteLine("It worked!");
+        List<object> vids = video.CreateNewVideo();
+        List<string> oneComment = comment.CreateNewComment();
+        List<object> titles;
+        List<object> authors;
+        List<object> videoLengths;
+        List<string> namesOfCommentors;
+        List<string> CommentsMade;
+
+        titles.Add(vids[0]);
+        authors.Add(vids[1]);
+        videoLengths.Add(vids[2]);
+        namesOfCommentors.Add(oneComment[0]);
+        CommentsMade.Add(oneComment[1]);
+
+
+        Console.WriteLine(titles[0]);
     }
 
     void DisplayVideoBank()
