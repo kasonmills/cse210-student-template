@@ -17,14 +17,30 @@ class Program
         List<string> namesOfCommentors;
         List<string> CommentsMade;
 
-        titles.Add(vids[0]);
-        authors.Add(vids[1]);
-        videoLengths.Add(vids[2]);
-        namesOfCommentors.Add(oneComment[0]);
-        CommentsMade.Add(oneComment[1]);
+        Console.WriteLine("How many video's would you like to create? ");
+        string amount = Console.ReadLine();
+        int number = int.Parse(amount);
 
+        Console.WriteLine("How many comments would you like on each video? ");
+        string com = Console.ReadLine();
+        int numComments = int.Parse(com);
 
-        Console.WriteLine(titles[0]);
+        for(int a = 0; a < number; a++)
+        {
+            titles.Add(vids[0]);
+            authors.Add(vids[1]);
+            videoLengths.Add(vids[2]);
+            for(int b = 0; b < numComments; b++)
+            {
+                namesOfCommentors.Add(oneComment[0]);
+                CommentsMade.Add(oneComment[1]);
+            }
+            
+        }
+        
+        // test code
+        // Console.WriteLine(titles[0]);
+        DisplayVideoBank();
     }
 
     void DisplayVideoBank()

@@ -7,7 +7,9 @@ class Order
     kinds of product. Then there needs to be a method that will calculate the overall cost of each item.
     */
 
-    float CalculateProductTotal()
+    List<string> productNames;
+
+    float CalculateOrderTotal()
     {
         /*
         this method needs to total up all the costs of the products for the order
