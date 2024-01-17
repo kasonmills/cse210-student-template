@@ -6,36 +6,29 @@ class Program
     {
         Console.WriteLine("Hello Learning02 World!");
 
-        var car1 = new Car();
-        car1.make = "Honda";
-        car1.model = "Civic";
-        car1.mileage = 30;
-        car1.gallonsOfFuel = 10;
+        Job job1 = new Job();
+        job1._jobTitle = "Software Engineer";
+        job1._company = "Apple";
+        job1._startYear = 2010;
+        job1._endYear = 2020;
 
-        var miles = car1.RemainingMiles;
+        //Console.WriteLine(job1._company);
+        // job1.Display();
 
-        car1.ReduceFuel(3);
+        Job job2 = new Job();
+        job2._company = "Microsoft";
+        job2._jobTitle = "Manager";
+        job2._startYear = 2022;
+        job2._endYear = 2023;
 
-        //string carMake1 = "Honda";
-        //string carModel1 = "Civic";
-        //int carMileage1 = 33;
-    }
-}
+        // Console.WriteLine(job2._company);
 
-public class Car
-{
-    public string make;
-    public string model;
-    public int mileage;
-    public int gallonsOfFuel;
+        Resume myResume = new Resume();
+        myResume._name = "Allison Rose";
 
-    public int RemainingMiles()
-    {
-        return gallonsOfFuel * mileage;
-    }
+        myResume._jobs.Add(job1);
+        myResume._jobs.Add(job2);
 
-    public void ReduceFuel(int amount)
-    {
-        gallonsOfFuel = gallonsOfFuel - amount;
+        myResume.Display();
     }
 }
