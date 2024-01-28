@@ -2,52 +2,48 @@ using System;
 
 namespace memorizer;
 
-public class DisplayManager
+public class Reference
 {
     /*
     this class will be concerned with displaying the scipture and the reference
-    associated with it it will also clear the console so that you can display the
-    new "scripture" that is modified. It will also pay attention to when the user
-    presses the enter key so that it can then do it all over again.
+    associated with it.
     */
-    Scripture scripture = new Scripture();
-    Word word = new Word();
 
-    public void displayScripture(List<string> verse, List<string> references)
+    string _book;
+    int _chapter;
+    int _verse;
+    int _endVerse;
+
+    private bool multVerses;
+    public Reference(string book, int chapter, int verse)
     {
-        /*
-        this method will loop through the scripture and display the scripture
-        I want to make this so that it will display the replaced words as well as
-        the remaining words
-        */
-        string display = "";
-        Console.WriteLine(references[0]);
-        foreach(string entry in verse)
+        // this is a constructor for a singular verse
+        _book = book;
+        _chapter = chapter;
+        _verse = verse;
+    }
+
+    public Reference(string book, int chapter, int startVerse, int endVerse)
+    {
+        // this is a constructor for multiple verses
+        _book = book;
+        _chapter = chapter;
+        _verse = startVerse;
+        _endVerse = endVerse;
+        multVerses = true;
+    }
+
+    public void DisplayReference()
+    {
+        // this method handles the display of the reference bases on wether or not it has multiple verses
+        if (multVerses)
         {
-            display += entry + " ";
+        Console.WriteLine($"{_book} {_chapter}:{_verse}-{_endVerse}");
         }
-        Console.WriteLine(display);
+        else
+        {
+        Console.WriteLine($"{_book} {_chapter}:{_verse}");
+        }
     }
 
-    public void keepGoing(List<string> verse, List<string> references)
-    {
-        /*
-        this method will check to see if a they have either pressed the enter key
-        or the q key and if they press the enter key then it will replace three words
-        with dashes and then display the new scripture with the dashes set up in there.
-        */
-        Console.WriteLine("Press enter to continue or q to quit");
-        string input;
-        bool allBlanks = false;
-        do
-        {
-            input = Console.ReadLine();
-            
-            {
-                Console.Clear();
-                verse = word.selectWords(verse, ref allBlanks);
-                displayScripture(verse, references);
-            }
-        }while(input !="q" && !allBlanks);
-    }
 }
