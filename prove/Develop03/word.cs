@@ -8,8 +8,8 @@ public class Word
     is hidden and what to display if the word is hidden
     */
     
-    string _text;
-    bool _isHidden;
+    private string _text;
+    private bool _isHidden;
 
     public Word(string text)
     {

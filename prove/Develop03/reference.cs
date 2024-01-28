@@ -9,10 +9,10 @@ public class Reference
     associated with it.
     */
 
-    string _book;
-    int _chapter;
-    int _verse;
-    int _endVerse;
+    private string _book;
+    private int _chapter;
+    private int _verse;
+    private int _endVerse;
 
     private bool multVerses;
     public Reference(string book, int chapter, int verse)
