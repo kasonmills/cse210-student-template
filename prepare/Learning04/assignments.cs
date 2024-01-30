@@ -9,13 +9,13 @@ public class Assignment
 
     public Assignment(string studentName, string topic)
     {
-        studentName = _studentName;
-        topic = _topic;
+        _studentName = studentName;
+        _topic = topic;
     }
 
     public string GetSummary()
     {
-        return _studentName + _topic;
+        return _studentName + " " + _topic;
     }
 
     public string GetTopic()

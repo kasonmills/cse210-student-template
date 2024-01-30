@@ -10,8 +10,8 @@ public class Math : Assignment
     public Math(string studentName, string topic, string textbookSection, string problems) 
         : base(studentName, topic)
     {
-        textbookSection = _textbookSection;
-        problems = _problems;
+        _textbookSection = textbookSection;
+        _problems = problems;
     }
 
     public string GetHomeworkList()
