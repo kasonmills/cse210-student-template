@@ -11,9 +11,9 @@ class Listing: Activity
     {
 
     }
-    /*private string GetPrompt()
+    
+    private string SelectRandomPrompt()
     {
         return "";
     }
-    */
 }

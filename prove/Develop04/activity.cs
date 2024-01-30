@@ -5,16 +5,21 @@ namespace mindfulness;
 
 class Activity
 {
-    protected Activity(_name, _description);
+    
     private string _description;
     private string _name;
     private int _duration;
     private DateOnly _startTime;
+
+    protected Activity(_name, _description)
+    {
+
+    }
     public void DisplayStartMessage(string _name)
     {
         // this method might need to pass the different names of the activities into it
         Console.WriteLine($"Welcome to the {_name} activity");
-        Thread.Sleep(1000);
+        Thread.Sleep(2000);
         Console.WriteLine("Prepare yourself.");
         Console.WriteLine("The activity will begin soon.");
 
