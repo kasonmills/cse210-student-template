@@ -19,6 +19,7 @@ class Activity
     {
         // this method might need to pass the different names of the activities into it
         Console.WriteLine($"Welcome to the {name} activity");
+        Console.WriteLine("\n");
     }
 
     protected void DisplayDescription(string description)
@@ -27,23 +28,25 @@ class Activity
         Thread.Sleep(2000);
         Console.WriteLine("Prepare yourself.");
         Console.WriteLine("The activity will begin soon.");
+        Console.WriteLine("\n");
     }
 
     protected int SetTotalDuration(string name)
     {
-        Console.WriteLine($"How man seconds would you like the {name} activity to last?");
+        Console.WriteLine($"How many seconds would you like the {name} activity to last?");
         string option = Console.ReadLine();
         _duration = int.Parse(option);
         return _duration;
     }
 
-    public void ShowEndMessage(string name, int duration)
+    public void ShowEndMessage(string _name, int _duration)
     {
         Console.WriteLine("Finished");
-        Thread.Sleep(1000);
-        Console.WriteLine($"Good Job! You completed the {name} activity!");
-        Thread.Sleep(1000);
-        Console.WriteLine($"The activity lasted {duration} seconds.");
+        Thread.Sleep(2000);
+        Console.WriteLine($"Good Job! You completed the {_name} activity!");
+        Thread.Sleep(2000);
+        Console.WriteLine($"The activity lasted {_duration} seconds.");
+        Console.WriteLine("\n");
     }
 
     protected void DisplayAnimations(string animationType, int interval)
@@ -63,6 +66,7 @@ class Activity
                     Console.Write("\b \b");
                     _duration--;
                 }
+                Console.WriteLine("\n");
                 break;
             }
             case "spinner":
@@ -79,6 +83,7 @@ class Activity
                     Console.Write("\b \b");
                     _duration--;
                 }
+                Console.WriteLine("\n");
                 break;
             }
             case "buffer":
@@ -88,6 +93,7 @@ class Activity
                     Console.Write(".");
                     Thread.Sleep(1000);
                 }
+                Console.WriteLine("\n");
                 break;
             }
             default:

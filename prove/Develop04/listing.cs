@@ -40,7 +40,7 @@ class Listing: Activity
         _promptsListing.Add("Who are people that you have helped this week?");
         _promptsListing.Add("when have you felt the Holy Ghost this month?");
         _promptsListing.Add("Who are some of your personal heroes?");
-        int geh = rnd.Next(_promptsListing.Count());
+        int geh = rnd.Next(_promptsListing.Count);
         string single_prompt = _promptsListing[geh];
         return single_prompt;
     }

@@ -48,7 +48,7 @@ class Reflection: Activity
         _questions.Add("How did you get started?");
         _questions.Add("How did you feel when it was complete?");
         _questions.Add("What made this time different than other times when you were not as successful?");
-        _questions.Add("What is your favoirte thing about this experience?");
+        _questions.Add("What is your favorite thing about this experience?");
         _questions.Add("What could you learn from this experience that applies to other situations?");
         _questions.Add("What did you learn about yourself through this experience?");
         _questions.Add("How can you keep this experience in mind in the future?");
