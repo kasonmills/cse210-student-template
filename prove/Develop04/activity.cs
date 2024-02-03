@@ -31,7 +31,7 @@ class Activity
 
     protected int SetTotalDuration(string name)
     {
-        Console.WriteLine($"How long would you like the {name} activity to last?");
+        Console.WriteLine($"How man seconds would you like the {name} activity to last?");
         string option = Console.ReadLine();
         _duration = int.Parse(option);
         return _duration;
@@ -56,17 +56,18 @@ class Activity
         {
             case "countdown":
             {
-                for(int i = interval; interval > 0; i--)
+                for(int i = interval; interval > 0; interval--)
                 {
-                    DisplayCountdown(i);
+                    DisplayCountdown(interval);
                     Thread.Sleep(1000);
                     Console.Write("\b \b");
+                    _duration--;
                 }
                 break;
             }
             case "spinner":
             {
-                for (int i = interval; interval > 0; i--)
+                for (int i = interval; interval > 0; interval--)
                 {
                     Console.Write("+");
 
@@ -76,12 +77,13 @@ class Activity
                     Console.Write("-"); // Replace it with the - character
                     Thread.Sleep(500);
                     Console.Write("\b \b");
+                    _duration--;
                 }
                 break;
             }
             case "buffer":
             {
-                for(int i = interval; interval > 0; i--)
+                for(int i = interval; interval > 0; interval--)
                 {
                     Console.Write(".");
                     Thread.Sleep(1000);

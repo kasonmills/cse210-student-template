@@ -10,7 +10,7 @@ class Listing: Activity
 
     public Listing(string name, string description) :base(name, description)
     {
-
+        _promptsListing = new List<string>();
     }
 
     public void StartActivity()
@@ -24,7 +24,6 @@ class Listing: Activity
         DisplayAnimations("buffer", 5);
         while (_duration !=0)
         {
-            DisplayAnimations("spinner", _duration);
             Console.WriteLine(">");
             string input = Console.ReadLine();
             entries.Add(input);
@@ -41,7 +40,7 @@ class Listing: Activity
         _promptsListing.Add("Who are people that you have helped this week?");
         _promptsListing.Add("when have you felt the Holy Ghost this month?");
         _promptsListing.Add("Who are some of your personal heroes?");
-        int geh = rnd.Next(_promptsListing.Count);
+        int geh = rnd.Next(_promptsListing.Count());
         string single_prompt = _promptsListing[geh];
         return single_prompt;
     }

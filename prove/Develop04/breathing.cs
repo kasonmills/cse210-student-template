@@ -14,15 +14,14 @@ class Breathing: Activity
         DisplayStartMessage(_name);
         _duration = SetTotalDuration(_name);
         DisplayDescription(_description);
-        while (_duration != 0)
+        int segment = _duration / 8;
+        for (int i = segment;segment > 0; segment--)
         {
-            DisplayAnimations("spinner", _duration);
-            int segment = _duration / 4;
             Console.WriteLine("Breathe in...");
-            DisplayAnimations("countdown", segment);
+            DisplayAnimations("countdown", 4);
             Console.WriteLine("Breathe out...");
-            DisplayAnimations("countdown", segment);
+            DisplayAnimations("countdown", 4);
         }
-        ShowEndMessage(_name, _duration);
+        ShowEndMessage(_name, segment * 8);
     }
 }

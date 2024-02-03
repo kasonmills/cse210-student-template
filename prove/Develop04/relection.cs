@@ -10,7 +10,8 @@ class Reflection: Activity
 
     public Reflection(string name, string description):base(name, description)
     {
-
+        _promptsReflection = new List<string>();
+        _questions = new List<string>();
     }
     public void StartActivity()
     {
@@ -18,18 +19,13 @@ class Reflection: Activity
         _duration = SetTotalDuration(_name);
         DisplayDescription(_description);
         string prompt = GetPrompt();
-        string question = GetQuestion();
         DisplayPrompt(prompt);
         DisplayAnimations("buffer", 5);
         while (_duration != 0)
         {
+            string question = GetQuestion();
             DisplayQuestion(question);
-            DisplayAnimations("countdown", _duration);
-            if (_duration % 5 == 0)
-            {
-                question = GetQuestion();
-                DisplayQuestion(question);
-            }
+            DisplayAnimations("spinner", 5);
         }
         ShowEndMessage(_name, _duration);
     }
