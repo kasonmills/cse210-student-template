@@ -6,62 +6,47 @@ namespace mindfulness;
 class Activity
 {
     
-    private string _description;
-    private string _name;
-    private int _duration;
-    private DateOnly _startTime;
+    protected string _description;
+    protected string _name;
+    protected int _duration;
 
-    protected Activity(_name, _description)
+    public Activity(string name, string description)
     {
-
+        _name = name;
+        _description = description;
     }
-    public void DisplayStartMessage(string _name)
+    public void DisplayStartMessage(string name)
     {
         // this method might need to pass the different names of the activities into it
-        Console.WriteLine($"Welcome to the {_name} activity");
+        Console.WriteLine($"Welcome to the {name} activity");
+    }
+
+    protected void DisplayDescription(string description)
+    {
+        Console.WriteLine(description);
         Thread.Sleep(2000);
         Console.WriteLine("Prepare yourself.");
         Console.WriteLine("The activity will begin soon.");
-
     }
 
-    protected int SetTotalDuration(string _name)
+    protected int SetTotalDuration(string name)
     {
-        Console.WriteLine($"How long would you like the {_name} activity to last?");
+        Console.WriteLine($"How long would you like the {name} activity to last?");
         string option = Console.ReadLine();
         _duration = int.Parse(option);
         return _duration;
     }
 
-    protected int GetIntervals()
-    {
-        Console.WriteLine("How many seconds would you like the intervals to be?");
-        string length = Console.ReadLine();
-        int interval = int.Parse(length);
-        return interval;
-    }
-
-    public void ShowEndMessage(string _name, int _duration)
+    public void ShowEndMessage(string name, int duration)
     {
         Console.WriteLine("Finished");
         Thread.Sleep(1000);
-        Console.WriteLine($"Good Job! You completed the {_name} activity!");
+        Console.WriteLine($"Good Job! You completed the {name} activity!");
         Thread.Sleep(1000);
-        Console.WriteLine($"The activity lasted {_duration} seconds.");
+        Console.WriteLine($"The activity lasted {duration} seconds.");
     }
 
-    protected void SelectAnimation(int interval)
-    {
-        /*
-        this method needs to evalulate which animation to show. it needs to work with all three of the child classes so they can
-        evalulate for their needs. I need a switch case most likely need to know which activity is running and which animation matters
-        in that moment. this method will likely be called multiple times to make it the most useful in the different situations.
-        */
-        
-        DisplayAnimations("", interval);
-    }
-
-    private void DisplayAnimations(string animationType, int interval)
+    protected void DisplayAnimations(string animationType, int interval)
     {
         /*
         this method needs to do either two or three options with the displaying the right animation it needs to either display a timer or
@@ -71,19 +56,17 @@ class Activity
         {
             case "countdown":
             {
-                for(interval; interval > 0; interval--)
+                for(int i = interval; interval > 0; i--)
                 {
-                    Console.Write(interval);
-
+                    DisplayCountdown(i);
                     Thread.Sleep(1000);
-
                     Console.Write("\b \b");
                 }
                 break;
             }
             case "spinner":
             {
-                for (int i = 3; i > 0; i--)
+                for (int i = interval; interval > 0; i--)
                 {
                     Console.Write("+");
 
@@ -94,31 +77,27 @@ class Activity
                     Thread.Sleep(500);
                     Console.Write("\b \b");
                 }
-                
                 break;
             }
             case "buffer":
             {
-                for(int i = 3; i >0; i--)
+                for(int i = interval; interval > 0; i--)
                 {
                     Console.Write(".");
                     Thread.Sleep(1000);
                 }
+                break;
             }
             default:
             {
                 Console.WriteLine("I couldn't find what you were looking for");
+                break;
             }
         }
     }
 
-    protected bool KeepGoing()
+    public void DisplayCountdown(int countdown)
     {
-        return false;
-    }
-
-    protected string GetRandomString(string[] _prompts)
-    {
-        return "";
+        Console.WriteLine(countdown);
     }
 }
