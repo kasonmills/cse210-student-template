@@ -14,6 +14,7 @@ class Breathing: Activity
         DisplayStartMessage(_name);
         _duration = SetTotalDuration(_name);
         DisplayDescription(_description);
+        int start = _duration;
         int segment = _duration / 8;
         for (int i = segment;segment > 0; segment--)
         {
@@ -22,6 +23,6 @@ class Breathing: Activity
             Console.WriteLine("Breathe out...");
             DisplayAnimations("countdown", 4);
         }
-        ShowEndMessage(_name, segment * 8);
+        ShowEndMessage(_name, start);
     }
 }

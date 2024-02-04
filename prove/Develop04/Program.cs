@@ -48,11 +48,7 @@ class Program
                 {
                     Activity activity = new Activity(listing, listingDescription);
                     Listing listing1 = new Listing(listing, listingDescription);
-                    break;
-                }
-                default:
-                {
-                    Console.WriteLine("Please select one of the menu options");
+                    listing1.StartActivity();
                     break;
                 }
             }

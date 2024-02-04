@@ -22,7 +22,15 @@ class Listing: Activity
         string prompt = SelectRandomPrompt();
         DisplayPrompt(prompt);
         DisplayAnimations("buffer", 5);
-        while (_duration !=0)
+        int start = _duration;
+
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(_duration);
+
+        Thread.Sleep(3000);
+
+        DateTime currentTime = DateTime.Now;
+        while (currentTime < futureTime)
         {
             Console.WriteLine(">");
             string input = Console.ReadLine();
@@ -30,7 +38,7 @@ class Listing: Activity
         }
         _responseCount = CountEntries(entries);
         DisplayNumEntries(_responseCount);
-        ShowEndMessage(_name, _duration);
+        ShowEndMessage(_name, start);
     }
     
     private string SelectRandomPrompt()

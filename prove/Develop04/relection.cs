@@ -21,13 +21,14 @@ class Reflection: Activity
         string prompt = GetPrompt();
         DisplayPrompt(prompt);
         DisplayAnimations("buffer", 5);
+        int start = _duration;
         while (_duration != 0)
         {
             string question = GetQuestion();
             DisplayQuestion(question);
             DisplayAnimations("spinner", 5);
         }
-        ShowEndMessage(_name, _duration);
+        ShowEndMessage(_name, start);
     }
     
     private string GetPrompt()

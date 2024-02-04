@@ -15,31 +15,30 @@ class Activity
         _name = name;
         _description = description;
     }
-    public void DisplayStartMessage(string name)
+    public void DisplayStartMessage(string _name)
     {
         // this method might need to pass the different names of the activities into it
-        Console.WriteLine($"Welcome to the {name} activity");
-        Console.WriteLine("\n");
+        Console.WriteLine($"Welcome to the {_name} activity");
     }
 
-    protected void DisplayDescription(string description)
+    protected void DisplayDescription(string _description)
     {
-        Console.WriteLine(description);
+        Console.WriteLine(_description);
         Thread.Sleep(2000);
         Console.WriteLine("Prepare yourself.");
         Console.WriteLine("The activity will begin soon.");
         Console.WriteLine("\n");
     }
 
-    protected int SetTotalDuration(string name)
+    protected int SetTotalDuration(string _name)
     {
-        Console.WriteLine($"How many seconds would you like the {name} activity to last?");
+        Console.WriteLine($"How many seconds would you like the {_name} activity to last?");
         string option = Console.ReadLine();
         _duration = int.Parse(option);
         return _duration;
     }
 
-    public void ShowEndMessage(string _name, int _duration)
+    protected void ShowEndMessage(string _name, int _duration)
     {
         Console.WriteLine("Finished");
         Thread.Sleep(2000);
