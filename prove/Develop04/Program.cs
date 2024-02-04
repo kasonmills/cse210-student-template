@@ -12,6 +12,7 @@ class Program
         int choice;
         do
         {
+            // I am not too sure if this portion was supposed to be hard coded in but I couldn't find anywhere that says otherwise...
             string breath = "Breathing";
             string breathingDescription = "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.";
             string listing = "Listing";
@@ -19,6 +20,7 @@ class Program
             string reflecting = "Reflecting";
             string reflectingDescription = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
             
+            // displaying the menu then prompting the user for what they want to do.
             Console.WriteLine("Menu Options:");
             Console.WriteLine("\t1. Start breathing activity");
             Console.WriteLine("\t2. Start reflecting activity");
@@ -30,6 +32,7 @@ class Program
 
             switch (choice)
             {
+                // creating the needed constructor based on what activity they want to do.
                 case 1:
                 {
                     Activity activity = new Activity(breath, breathingDescription);

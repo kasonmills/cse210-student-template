@@ -23,6 +23,7 @@ class Activity
 
     protected void DisplayDescription(string _description)
     {
+        // this method will get the description needed for the activity display it to the user
         Console.WriteLine(_description);
         Thread.Sleep(2000);
         Console.WriteLine("Prepare yourself.");
@@ -32,6 +33,8 @@ class Activity
 
     protected int SetTotalDuration(string _name)
     {
+        // this method will prompt the user for how long they want the duration of an activity to last
+        // then pass that info into the activity so it can be used there
         Console.WriteLine($"How many seconds would you like the {_name} activity to last?");
         string option = Console.ReadLine();
         _duration = int.Parse(option);
@@ -40,6 +43,7 @@ class Activity
 
     protected void ShowEndMessage(string _name, int _duration)
     {
+        // this method tells the user that they have finished an activty and how long it lasted
         Console.WriteLine("Finished");
         Thread.Sleep(2000);
         Console.WriteLine($"Good Job! You completed the {_name} activity!");
@@ -58,6 +62,7 @@ class Activity
         {
             case "countdown":
             {
+                // this will just show the numbers of a countdown
                 for(int i = interval; interval > 0; interval--)
                 {
                     DisplayCountdown(interval);
@@ -70,6 +75,7 @@ class Activity
             }
             case "spinner":
             {
+                // this one makes a little spinner
                 for (int i = interval; interval > 0; interval--)
                 {
                     Console.Write("+");
@@ -87,6 +93,7 @@ class Activity
             }
             case "buffer":
             {
+                // this one just adds . until the time limit has been reached
                 for(int i = interval; interval > 0; interval--)
                 {
                     Console.Write(".");
@@ -97,6 +104,8 @@ class Activity
             }
             default:
             {
+                // this is here just in case I want to change this later for more complex coding instead of hard
+                // coding in the method I want to use instead maybe prompting the user for it... IDK
                 Console.WriteLine("I couldn't find what you were looking for");
                 break;
             }
@@ -105,6 +114,7 @@ class Activity
 
     public void DisplayCountdown(int countdown)
     {
+        // this displays the number of what count down you are using
         Console.WriteLine(countdown);
     }
 }

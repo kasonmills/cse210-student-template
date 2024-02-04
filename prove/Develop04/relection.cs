@@ -10,18 +10,23 @@ class Reflection: Activity
 
     public Reflection(string name, string description):base(name, description)
     {
+        // define the two types of listing for the activity
         _promptsReflection = new List<string>();
         _questions = new List<string>();
     }
     public void StartActivity()
     {
+        // this method will handle the reflection activity
         DisplayStartMessage(_name);
+        // set the total duration
         _duration = SetTotalDuration(_name);
         DisplayDescription(_description);
+        // start off with a random prompt
         string prompt = GetPrompt();
         DisplayPrompt(prompt);
         DisplayAnimations("buffer", 5);
         int start = _duration;
+        // display to the user a random question every 5 seconds
         while (_duration != 0)
         {
             string question = GetQuestion();
@@ -33,6 +38,7 @@ class Reflection: Activity
     
     private string GetPrompt()
     {
+        // add all of the prompts to a list and then return a random entry in it
         _promptsReflection.Add("Think of a time when you stood up for someone else.");
         _promptsReflection.Add("Think of a time when you did something really difficult.");
         _promptsReflection.Add("Think of a time when you helped someone in need.");
@@ -44,6 +50,7 @@ class Reflection: Activity
     
     private string GetQuestion()
     {
+        // add all the questions into the list and then return a randomly selected one
         _questions.Add("Why was this experience meaningful to you?");
         _questions.Add("Have you ever done anything like this before?");
         _questions.Add("How did you get started?");
@@ -60,11 +67,13 @@ class Reflection: Activity
     
     private void DisplayPrompt(string prompt)
     {
+        // display to the user a random prompt
         Console.WriteLine(prompt);
     }
 
     private void DisplayQuestion(string question)
     {
+        // display to the user a random question
         Console.WriteLine(question);
     }
 }
