@@ -48,7 +48,7 @@ class Entry
         Console.WriteLine("Option 4: Load your journal from a specific file");
         Console.WriteLine("Option 5: Is used to quit the journal program");
         Console.WriteLine("To make a selection please press the corresponding number to the option you want.");
-        Console.WriteLine("Then press enter.");
+        Console.WriteLine("Then press enter.\n");
     }
 
     public void Display_text(List<string> saved_entries)
@@ -58,7 +58,7 @@ class Entry
         */
         Console.WriteLine("Here is your journal entries");
         int amount = saved_entries.Count;
-        for(int i = 0; i < amount; i++)
+        for (int i = 0; i < amount; i++)
         {
             Console.WriteLine(saved_entries[i]);
         }
@@ -70,7 +70,7 @@ class Entry
         this method reads in the file that was prompted for from the user 
         */
         StreamReader sr = new StreamReader(file);
-        using(sr)
+        using (sr)
         {
             while (!sr.EndOfStream)
             {
