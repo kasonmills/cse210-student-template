@@ -9,41 +9,41 @@ class Journal
         This is the central hub of the program everything will be called upon from here
         */
         Console.WriteLine("Hello Develop02 World!");
-    
-        PromptGenerator prompt = new PromptGenerator();
-        Entry entry = new Entry();
-        List<string> saved_entries = new List<string>();
-        List<string> new_entry = new List<string>();
-        bool active = true;
+
+        PromptGenerator _prompt = new PromptGenerator();
+        Entry _entry = new Entry();
+        List<string> _savedEntries = new List<string>();
+        List<string> _newEntry = new List<string>();
+        bool _active = true;
 
         //while loop to make the program actually useful
-        while (active)
+        while (_active)
         {
-            entry.Display_Menu();
-            string typed = Console.ReadLine();
-            int option = int.Parse(typed);
-            switch(option)
+            _entry.Display_Menu();
+            string _typed = Console.ReadLine();
+            int _option = int.Parse(_typed);
+            switch (_option)
             {
                 case 1:
-                    string longDateValue = entry.Get_date();
-                    string promppp = prompt.Get_prompt();
-                    Console.WriteLine($"{promppp}");
-                    new_entry = entry.Create_entry(longDateValue, promppp);
+                    string _longDateValue = _entry.Get_date();
+                    string _promptSingle = _prompt.Get_prompt();
+                    Console.WriteLine($"{_promptSingle}");
+                    _newEntry = _entry.Create_entry(_longDateValue, _promptSingle);
                     break;
-            
+
                 case 2:
-                    entry.Read_file(Get_file_name(), saved_entries);
-                    entry.Display_text(saved_entries);
+                    _entry.Read_file(Get_file_name(), _savedEntries);
+                    _entry.Display_text(_savedEntries);
                     break;
                 case 3:
-                    entry.Save_text(Get_file_name(), new_entry);
+                    _entry.Save_text(Get_file_name(), _newEntry);
                     break;
                 case 4:
-                    entry.Read_file(Get_file_name(), saved_entries);
-                    entry.Display_text(saved_entries);
+                    _entry.Read_file(Get_file_name(), _savedEntries);
+                    _entry.Display_text(_savedEntries);
                     break;
                 case 5:
-                    active = false;
+                    _active = false;
                     break;
                 default:
                     break;
@@ -57,7 +57,7 @@ class Journal
         this method prompts the user for a file name so we know where to store the information
         */
         Console.WriteLine("What file are you working with?");
-        string file = Console.ReadLine();
-        return file;
+        string _file = Console.ReadLine();
+        return _file;
     }
 }
