@@ -7,44 +7,34 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello Foundation1 World!");
-        Video video = new Video();
-        Comment comment = new Comment();
-        List<object> vids = video.CreateNewVideo();
-        List<string> oneComment = comment.CreateNewComment();
-        List<object> titles;
-        List<object> authors;
-        List<object> videoLengths;
-        List<string> namesOfCommentors;
-        List<string> CommentsMade;
+        Video video = new Video("I built the largest beacon in minecraft", "Kolanni", 500);
+        Comment comment = new Comment("kason", "wooooow sooooo cooool!");
 
-        Console.WriteLine("How many video's would you like to create? ");
-        string amount = Console.ReadLine();
-        int number = int.Parse(amount);
+        Video video1 = new Video("", "", 0);
+        Comment comment1 = new Comment("", "");
+        Comment comment2 = new Comment("", "");
+        Comment comment3 = new Comment("", "");
 
-        Console.WriteLine("How many comments would you like on each video? ");
-        string com = Console.ReadLine();
-        int numComments = int.Parse(com);
+        Video video2 = new Video("", "", 0);
+        Comment comment4 = new Comment("", "");
+        Comment comment5 = new Comment("", "");
+        Comment comment6 = new Comment("", "");
+        Comment comment7 = new Comment("", "");
 
-        for(int a = 0; a < number; a++)
+        Video video3 = new Video("", "", 0);
+        Comment comment8 = new Comment("", "");
+        Comment comment9 = new Comment("", "");
+
+        List<Video> vids = new List<Video>();
+
+        vids.Add(video);
+        vids.Add(video1);
+        vids.Add(video2);
+        vids.Add(video3);
+
+        foreach(Video vid in vids)
         {
-            titles.Add(vids[0]);
-            authors.Add(vids[1]);
-            videoLengths.Add(vids[2]);
-            for(int b = 0; b < numComments; b++)
-            {
-                namesOfCommentors.Add(oneComment[0]);
-                CommentsMade.Add(oneComment[1]);
-            }
-            
+            Console.WriteLine(vid);
         }
-        
-        // test code
-        // Console.WriteLine(titles[0]);
-        DisplayVideoBank();
-    }
-
-    void DisplayVideoBank()
-    {
-        // I will need this for the whole program to work...
     }
 }
