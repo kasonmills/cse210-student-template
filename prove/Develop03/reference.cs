@@ -14,7 +14,7 @@ public class Reference
     private int _verse;
     private int _endVerse;
 
-    private bool multVerses;
+    private bool _multVerses;
     public Reference(string book, int chapter, int verse)
     {
         // this is a constructor for a singular verse
@@ -30,13 +30,13 @@ public class Reference
         _chapter = chapter;
         _verse = startVerse;
         _endVerse = endVerse;
-        multVerses = true;
+        _multVerses = true;
     }
 
     public void DisplayReference()
     {
         // this method handles the display of the reference bases on wether or not it has multiple verses
-        if (multVerses)
+        if (_multVerses)
         {
         Console.WriteLine($"{_book} {_chapter}:{_verse}-{_endVerse}");
         }

@@ -10,17 +10,17 @@ class Scripture
 
     List<Word> _words = new List<Word>();
     Random rnd = new Random();
-    private List<int> selected;
+    private List<int> _selected;
 
     public Scripture(Reference _reference, string _text)
     {
         // this constructor is the main aspect of the program.
         List<string> words = _text.Split(' ').ToList();
-        foreach (string letter in words)
+        foreach (string _spot in words)
         {
-            _words.Add(new Word(letter));
+            _words.Add(new Word(_spot));
         }
-        selected = new List<int>();
+        _selected = new List<int>();
         
     }
 
@@ -33,19 +33,19 @@ class Scripture
         to see if which words are hidden and then if the word is hidden the final check is to see if all the words are
         hidden.
         */
-        int lenOfScripture = _words.Count();
-        int numberToHide = rnd.Next(1, lenOfScripture + 1);
+        int _lenOfScripture = _words.Count();
+        int _numberToHide = rnd.Next(1, _lenOfScripture + 1);
 
         for (int i = 0; i < 3; i++)
         {
-            bool IhidIt = false;
+            bool _IhidIt = false;
             // this for loop selects three words at random this is also check 1
-            while(!IhidIt)
+            while(!_IhidIt)
             {
                 // this while loop check to see if the selected word is hidden and if it is select a new one check 2
-                if (selected.Contains(numberToHide))
+                if (_selected.Contains(_numberToHide))
                 {
-                    numberToHide = rnd.Next(1, lenOfScripture + 1);
+                    _numberToHide = rnd.Next(1, _lenOfScripture + 1);
                 }
                 else
                 {
@@ -53,9 +53,9 @@ class Scripture
                         if (!phrase.IsHidden())
                         {
                             // this if statement hides the selected words check 3
-                            _words[numberToHide - 1].Hide();
-                            selected.Add(numberToHide);
-                            IhidIt = true;
+                            _words[_numberToHide - 1].Hide();
+                            _selected.Add(_numberToHide);
+                            _IhidIt = true;
                             break;
                         }
                     }
@@ -78,12 +78,12 @@ class Scripture
         I want to make this so that it will display the replaced words as well as
         the remaining words
         */
-        string display = "";
+        string _display = "";
         foreach(Word entry in _words)
         {
-            display += entry.DisplayWord() + " ";
+            _display += entry.DisplayWord() + " ";
         }
-        Console.WriteLine(display);
+        Console.WriteLine(_display);
     }
     
     public bool IsCompletelyHidden()
