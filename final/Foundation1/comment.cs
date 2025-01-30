@@ -2,30 +2,29 @@ using System;
 
 class Comment
 {
-    public List<string> CreateNewComment()
+    private string _name;
+    private string _comment;
+    public Comment(string name, string comment)
     {
-        List<string> aComment;
-        aComment.Add(CreateCommentorName());
-        aComment.Add(CreateComment());
-        return aComment;
+        _name = name;
+        _comment = comment;
+    }
+    private string GetCommentorName()
+    {
+        return _name;
     }
 
-    private string CreateCommentorName()
+    private string GetComment()
     {
-        Console.WriteLine("Please input a name for a commentor: ");
-        string name = Console.ReadLine();
-        return name;
+        return _comment;
     }
-    public int GetNumComments()
+    public void SetCommentorName()
     {
-        // I am not too sure where this is going to be... 12/5
-        return 0;
+
     }
 
-    private string CreateComment()
+    private void SetComment()
     {
-        Console.WriteLine("Please create a comment that the named person said. ");
-        string comment = Console.ReadLine();
-        return comment;
+
     }
 }
