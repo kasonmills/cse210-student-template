@@ -17,11 +17,11 @@ class Program
         // multiple verse example
         Reference _reference = new Reference("Mosiah", 2, 40, 41);
         string _text = "40 O, all ye old men, and also ye young men, and you little children who can understand my words, for I have spoken plainly unto you that ye might understand, I pray that ye should awake to a remembrance of the awful situation of those that have fallen into transgression. 41 And moreover, I would desire that ye should consider on the blessed and happy state of those that keep the commandments of God. For behold, they are blessed in all things, both temporal and spiritual; and if they hold out faithful to the end they are received into heaven, that thereby they may dwell with God in a state of never-ending happiness. O remember, remember that these things are true; for the Lord God hath spoken it.";
-        Scripture scripture = new Scripture(_reference, _text);
+        Scripture _scripture = new Scripture(_reference, _text);
         
         // display the full scripture once before the user starts removing words
         _reference.DisplayReference();
-        scripture.DisplayScripture();
+        _scripture.DisplayScripture();
         string input;
 
         do
@@ -33,10 +33,10 @@ class Program
             {
                 
                 Console.Clear();
-                scripture.HideRandomWords();
+                _scripture.HideRandomWords();
                 _reference.DisplayReference();
-                scripture.DisplayScripture();
+                _scripture.DisplayScripture();
             }
-        }while(input !="quit" ^ scripture.IsCompletelyHidden());
+        }while(input !="quit" ^ _scripture.IsCompletelyHidden());
     }
 }
