@@ -1,6 +1,7 @@
 using System;
 
 namespace journal;
+
 class Journal
 {
     static void Main(string[] args)

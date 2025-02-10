@@ -1,6 +1,7 @@
 using System;
 
 namespace journal;
+
 class PromptGenerator
 {
     /*
