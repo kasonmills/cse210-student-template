@@ -11,7 +11,8 @@ class Program
         This is the central hub of the program everything will be called upon from here
         */
         Console.WriteLine("Hello Develop02 World!");
-        Display_Menu();
+        Start();
+    }
 
         public static void Start()
     {
@@ -20,6 +21,7 @@ class Program
         //while loop to make the program actually useful
         while (_active)
         {
+            Display_Menu();
             string _typed = Console.ReadLine();
             int _option = int.Parse(_typed);
             switch (_option)
