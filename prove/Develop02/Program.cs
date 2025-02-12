@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 
 namespace journal;
-class Journal
+
+class Program
 {
     static void Main(string[] args)
     {
@@ -9,26 +11,21 @@ class Journal
         This is the central hub of the program everything will be called upon from here
         */
         Console.WriteLine("Hello Develop02 World!");
+        Display_Menu();
 
-        PromptGenerator _prompt = new PromptGenerator();
-        Entry _entry = new Entry();
-        List<string> _savedEntries = new List<string>();
-        List<string> _newEntry = new List<string>();
+        public static void Start()
+    {
         bool _active = true;
 
         //while loop to make the program actually useful
         while (_active)
         {
-            _entry.Display_Menu();
             string _typed = Console.ReadLine();
             int _option = int.Parse(_typed);
             switch (_option)
             {
                 case 1:
-                    string _longDateValue = _entry.Get_date();
-                    string _promptSingle = _prompt.Get_prompt();
-                    Console.WriteLine($"{_promptSingle}");
-                    _newEntry = _entry.Create_entry(_longDateValue, _promptSingle);
+                    Journal journal = new Journal();
                     break;
 
                 case 2:
@@ -50,14 +47,20 @@ class Journal
             }
         }
     }
+    
 
-    public static string Get_file_name()
+    public static void Display_Menu()
     {
         /*
-        this method prompts the user for a file name so we know where to store the information
+        this method only worries about displaying the menu for the journal
         */
-        Console.WriteLine("What file are you working with?");
-        string _file = Console.ReadLine();
-        return _file;
+        Console.WriteLine("\nJournal Menu");
+        Console.WriteLine("Option 1: Create a new Journal Entry");
+        Console.WriteLine("Option 2: Display your previous journal entries");
+        Console.WriteLine("Option 3: Save your journal entry to a file");
+        Console.WriteLine("Option 4: Load your journal from a specific file");
+        Console.WriteLine("Option 5: Is used to quit the journal program");
+        Console.WriteLine("To make a selection please press the corresponding number to the option you want.");
+        Console.WriteLine("Then press enter.\n");
     }
 }
