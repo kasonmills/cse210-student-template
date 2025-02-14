@@ -1,7 +1,7 @@
 using System;
 
 namespace journal;
-class Journal
+public class Journal
 {
 
     // program class that interacts with journal- journal the backend to let entry and prompt generator run.
@@ -10,6 +10,30 @@ class Journal
     List<string> _savedEntries = new List<string>();
     List<string> _newEntry = new List<string>();
 
+
+    public void SelectOption(int _option)
+    {
+        switch (_option)
+        {
+            case 1:
+
+                break;
+
+            case 2:
+                _entry.Display_text(_savedEntries);
+                break;
+            case 3:
+                _entry.Save_text(Get_file_name(), _newEntry);
+                break;
+            case 4:
+                _entry.Read_file(Get_file_name(), _savedEntries);
+                _entry.Display_text(_savedEntries);
+                break;
+            default:
+                break;
+        }
+
+    }
     public static string Get_file_name()
     {
         /*

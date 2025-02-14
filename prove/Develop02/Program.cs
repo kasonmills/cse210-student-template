@@ -11,45 +11,22 @@ class Program
         This is the central hub of the program everything will be called upon from here
         */
         Console.WriteLine("Hello Develop02 World!");
-        Start();
-    }
-
-        public static void Start()
-    {
+        
+        Journal journal = new Journal();
         bool _active = true;
 
         //while loop to make the program actually useful
-        while (_active)
+        while(_active)
         {
             Display_Menu();
             string _typed = Console.ReadLine();
             int _option = int.Parse(_typed);
-            switch (_option)
-            {
-                case 1:
-                    Journal journal = new Journal();
-                    break;
-
-                case 2:
-                    _entry.Read_file(Get_file_name(), _savedEntries);
-                    _entry.Display_text(_savedEntries);
-                    break;
-                case 3:
-                    _entry.Save_text(Get_file_name(), _newEntry);
-                    break;
-                case 4:
-                    _entry.Read_file(Get_file_name(), _savedEntries);
-                    _entry.Display_text(_savedEntries);
-                    break;
-                case 5:
-                    _active = false;
-                    break;
-                default:
-                    break;
+            journal.SelectOption(_option);
+            if (_option==5){
+                break;
             }
         }
     }
-    
 
     public static void Display_Menu()
     {
