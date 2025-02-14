@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace journal;
 public class Journal
@@ -16,11 +17,13 @@ public class Journal
         switch (_option)
         {
             case 1:
-
+                Console.WriteLine(_entry.Get_date());
+                Console.WriteLine(_prompt.Get_prompt());
+                _newEntry =_entry.Create_entry(_entry.Get_date(),_prompt.Get_prompt());
                 break;
 
             case 2:
-                _entry.Display_text(_savedEntries);
+                _entry.Display_text(_newEntry);
                 break;
             case 3:
                 _entry.Save_text(Get_file_name(), _newEntry);
