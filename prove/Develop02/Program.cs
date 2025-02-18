@@ -14,11 +14,21 @@ class Program
 
         Journal journal = new Journal();
 
-        while(_option !=5)
+        journal.Display_Menu();
+        bool running = true;
+
+        while(running)
         {
-        string _typed = Console.ReadLine();
-        int _option = int.Parse(_typed);
-        journal.SelectOption(_option);
+            string _typed = Console.ReadLine();
+            int _option = int.Parse(_typed);
+            if(_option == 5)
+            {
+                running = false;
+            }
+            else
+            {
+                journal.SelectOption(_option);
+            }
         }
     }    
 }
