@@ -46,4 +46,19 @@ public class Journal
         string _file = Console.ReadLine();
         return _file;
     }
+
+    public void Display_Menu()
+    {
+        /*
+        this method only worries about displaying the menu for the journal
+        */
+        Console.WriteLine("\nJournal Menu");
+        Console.WriteLine("Option 1: Create a new Journal Entry");
+        Console.WriteLine("Option 2: Display your previous journal entries");
+        Console.WriteLine("Option 3: Save your journal entry to a file");
+        Console.WriteLine("Option 4: Load your journal from a specific file");
+        Console.WriteLine("Option 5: Is used to quit the journal program");
+        Console.WriteLine("To make a selection please press the corresponding number to the option you want.");
+        Console.WriteLine("Then press enter.\n");
+    }
 }

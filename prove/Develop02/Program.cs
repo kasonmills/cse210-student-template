@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices;
 
 namespace journal;
 
@@ -13,8 +14,11 @@ class Program
 
         Journal journal = new Journal();
 
+        while(_option !=5)
+        {
         string _typed = Console.ReadLine();
         int _option = int.Parse(_typed);
         journal.SelectOption(_option);
+        }
     }    
 }
