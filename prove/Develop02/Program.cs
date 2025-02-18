@@ -29,6 +29,7 @@ class Program
             {
                 journal.SelectOption(_option);
             }
+            journal.Display_Menu();
         }
     }    
 }
