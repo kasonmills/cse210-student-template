@@ -1,5 +1,6 @@
 using System;
 
+namespace goals;
 class Program
 {
     static void Main(string[] args)

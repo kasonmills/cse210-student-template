@@ -2,7 +2,7 @@ using System;
 
 namespace goals;
 
-class Goal
+abstract class Goal
 {
     private string _shortName;
     private string _description;
