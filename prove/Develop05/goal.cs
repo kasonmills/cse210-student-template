@@ -21,4 +21,11 @@ abstract class Goal
     protected abstract string GetNameOfGoal();
 
     protected abstract string GetGoalDetails();
+
+    protected int SetPointAmount()
+    {
+        return 0;
+    }
+
+    
 }

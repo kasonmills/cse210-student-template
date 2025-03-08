@@ -31,4 +31,9 @@ class Checklist : Goal
     {
         return "";
     }
+
+    private void CheckIfBonusIsEarned()
+    {
+        
+    }
 }
