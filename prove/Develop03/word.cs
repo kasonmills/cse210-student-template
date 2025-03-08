@@ -30,6 +30,7 @@ public class Word
         return _isHidden;
     }
 
+    // I think that if I want to fix it so that it displays an equivelant number of dashes to the letters in the word then I need to adjust this function somehow.
     public string DisplayWord()
     {
         // this method checks wether or not a word is hidden and what to display if that is true or not

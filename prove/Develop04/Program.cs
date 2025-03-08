@@ -25,7 +25,7 @@ class Program
             Console.WriteLine("\t1. Start breathing activity");
             Console.WriteLine("\t2. Start reflecting activity");
             Console.WriteLine("\t3. Start listing activity");
-            Console.WriteLine("\tQuit");
+            Console.WriteLine("\t4. Quit");
             Console.WriteLine("Select a choice from the menu: ");
             string anInput = Console.ReadLine();
             choice = int.Parse(anInput);

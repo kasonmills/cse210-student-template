@@ -2,7 +2,7 @@ using System;
 
 namespace goals;
 
-class Goal
+abstract class Goal
 {
     private string _shortName;
     private string _description;
@@ -21,4 +21,11 @@ class Goal
     protected abstract string GetNameOfGoal();
 
     protected abstract string GetGoalDetails();
+
+    protected int SetPointAmount()
+    {
+        return 0;
+    }
+
+    
 }
