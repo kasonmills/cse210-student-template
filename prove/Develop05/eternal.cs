@@ -18,14 +18,4 @@ class Eternal : Goal
     {
         return false;
     }
-
-    protected override string GetNameOfGoal()
-    {
-        return "";
-    }
-
-    protected override string GetGoalDetails()
-    {
-        return "";
-    }
 }
