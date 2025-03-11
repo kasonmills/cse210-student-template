@@ -4,9 +4,9 @@ namespace goals;
 
 abstract class Goal
 {
-    private string _shortName;
-    private string _description;
-    private int _points;
+    public string _shortName;
+    public string _description;
+    public int _points;
     public Goal(string name, string description, int points)
     {
         _shortName = name;
@@ -14,22 +14,13 @@ abstract class Goal
         _points = points;
     }
 
-    protected abstract void UpdateEvents();
+    public abstract void UpdateEvents();
 
-    protected abstract bool IsGoalcomplete();
+    public abstract bool IsGoalcomplete();
 
-    public string GetNameOfGoal()
-    {
-        return "";
-    }
+    public abstract string GetNameOfGoal();
 
-    public string GetGoalDetails()
-    {
-        return "";
-    }
+    public abstract string GetGoalDetails();
 
-    protected int GetPoints()
-    {
-        return 0;
-    }
+    public abstract int GetPoints();
 }

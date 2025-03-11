@@ -104,7 +104,7 @@ class GoalManager
         // method
     }
 
-    public void NewGoal(Goal _goals)
+    public void NewGoal()
     {
         Console.WriteLine("The types of goals are:");
         Console.WriteLine("1. Simple Goal");
@@ -120,18 +120,18 @@ class GoalManager
 
             case 1:
                 {
-                    Simple goal = new Simple("", "", 0);
+                    Simple goal = new Simple(name, description, score);
                     // _goals.add(goal);
                     break;
                 }
             case 2:
                 {
-                    Eternal goal = new Eternal("", "", 0);
+                    Eternal goal = new Eternal(name, description, score);
                     break;
                 }
             case 3:
                 {
-                    Checklist goal = new Checklist("", "", 0);
+                    Checklist goal = new Checklist(name, description, score);
                     break;
                 }
             default:
@@ -144,12 +144,31 @@ class GoalManager
 
     public void RecordEvent()
     {
+        if (_goals.Count == 0)
+        {
+            Console.WriteLine("\nNo goals available.");
+            return;
+        }
 
+        ListGoals();
+        Console.Write("Enter goal number to update: ");
+        int index = int.Parse(Console.ReadLine()) - 1;
+
+        if (index < 0 || index >= _goals.Count)
+        {
+            Console.WriteLine("Invalid selection.");
+            return;
+        }
+
+        Goal selectedGoal = _goals[index];
+        selectedGoal.UpdateEvents();
+        _score += selectedGoal._points;
+        Console.WriteLine($"Goal updated! Score increased by {selectedGoal._points}.");
     }
 
     public void SaveGoals()
     {
-        Console.WriteLine("What file did you save your goals to? ");
+        Console.WriteLine("What file did you want to save your goals to? ");
         string fileName = Console.ReadLine();
 
         using (StreamWriter outputFile = new StreamWriter(fileName))
@@ -162,18 +181,44 @@ class GoalManager
 
     public void LoadGoals()
     {
-        Console.WriteLine("What file did you save your goals to? ");
+        Console.WriteLine("What file did you want to load your goals from? ");
         string fileName = Console.ReadLine();
 
-        string[] lines = System.IO.File.ReadAllLines(fileName);
+        _goals.Clear();
 
-        foreach (string line in lines)
+        using (StreamReader reader = new StreamReader(fileName))
         {
-            string[] stuff = line.Split(",");
+            string line = reader.ReadLine();
+            if (line.StartsWith("SCORE"))
+            {
+                _score = int.Parse(line.Split(',')[1]);
+            }
 
-            _score = int.Parse(stuff[0]);
+            while (!reader.EndOfStream)
+            {
+                string[] parts = reader.ReadLine().Split(',');
+                string type = parts[0];
+                string name = parts[1];
+                string desc = parts[2];
+                int points = int.Parse(parts[3]);
 
-            _goals.Add(new Goal());
+                switch (type)
+                {
+                    case "Simple":
+                        bool isComplete = bool.Parse(parts[4]);
+                        _goals.Add(new Simple(name, desc, points));
+                        break;
+                    case "Eternal":
+                        _goals.Add(new Eternal(name, desc, points));
+                        break;
+                    case "Checklist":
+                        int completed = int.Parse(parts[4]);
+                        int target = int.Parse(parts[5]);
+                        int bonus = int.Parse(parts[6]);
+                        _goals.Add(new Checklist(name, desc, points, target, bonus));
+                        break;
+                }
+            }
         }
     }
 }
