@@ -9,12 +9,7 @@ class Eternal : Goal
 
     }
 
-    protected override void UpdateEvents()
-    {
-
-    }
-
-    protected override bool IsGoalcomplete()
+    public override bool IsGoalcomplete()
     {
         return false;
     }

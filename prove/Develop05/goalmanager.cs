@@ -21,6 +21,7 @@ class GoalManager
         int selection;
         do
         {
+            DisplayPlayerScore();
             DisplayMenu();
             string input = Console.ReadLine();
             selection = int.Parse(input);
@@ -71,7 +72,7 @@ class GoalManager
         Console.WriteLine("Please select a choice from the menu.");
     }
 
-    public void DisplayPlayerInfo()
+    public void DisplayPlayerScore()
     {
         // this method might be a part of the exceeds expectations portion of the program
         // so I will come back to it later
@@ -92,18 +93,32 @@ class GoalManager
             foreach (Goal goal in _goals)
             {
                 Console.WriteLine($"{count}. {goal}");
-                Console.WriteLine(goal.GetGoalDetails());
                 count++;
             }
         }
     }
 
-    public void ListDetails()
+    public string GetNameOfGoal()
     {
         // this method might be redundant if I don't decided to have the goal listed as a part of the other
         // method
+        return "";
     }
 
+    public string GetGoalDetails()
+    {
+        return "";
+    }
+
+    public int GetPoints()
+    {
+        return 0;
+    }
+
+    public int GetTargetToGetBonus()
+    {
+        return 0;
+    }
     public void NewGoal()
     {
         Console.WriteLine("The types of goals are:");
@@ -120,18 +135,18 @@ class GoalManager
 
             case 1:
                 {
-                    Simple goal = new Simple(name, description, score);
+                    Simple goal = new Simple(GetNameOfGoal(), GetGoalDetails(), GetPoints());
                     // _goals.add(goal);
                     break;
                 }
             case 2:
                 {
-                    Eternal goal = new Eternal(name, description, score);
+                    Eternal goal = new Eternal(GetNameOfGoal(), GetGoalDetails(), GetPoints());
                     break;
                 }
             case 3:
                 {
-                    Checklist goal = new Checklist(name, description, score);
+                    Checklist goal = new Checklist(GetNameOfGoal(), GetGoalDetails(), GetPoints(), GetTargetToGetBonus(), GetPoints());
                     break;
                 }
             default:
@@ -161,7 +176,7 @@ class GoalManager
         }
 
         Goal selectedGoal = _goals[index];
-        selectedGoal.UpdateEvents();
+        //selectedGoal.UpdateEvents();
         _score += selectedGoal._points;
         Console.WriteLine($"Goal updated! Score increased by {selectedGoal._points}.");
     }

@@ -10,13 +10,9 @@ class Simple : Goal
     {
 
     }
-    protected override void UpdateEvents()
-    {
 
-    }
-
-    protected override bool IsGoalcomplete()
+    public override bool IsGoalcomplete()
     {
-        return false;
+        return true;
     }
 }

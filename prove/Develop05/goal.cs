@@ -14,13 +14,8 @@ abstract class Goal
         _points = points;
     }
 
-    public abstract void UpdateEvents();
+    // I realized I may not need this and I may en up deleting it later
+    //public abstract void UpdateEvents();
 
     public abstract bool IsGoalcomplete();
-
-    public abstract string GetNameOfGoal();
-
-    public abstract string GetGoalDetails();
-
-    public abstract int GetPoints();
 }
