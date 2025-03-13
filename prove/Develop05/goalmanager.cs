@@ -100,8 +100,7 @@ class GoalManager
 
     public string GetNameOfGoal()
     {
-        // this method might be redundant if I don't decided to have the goal listed as a part of the other
-        // method
+        Console.WriteLine("");
         return "";
     }
 
