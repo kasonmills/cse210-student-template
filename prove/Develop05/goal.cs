@@ -17,5 +17,7 @@ abstract class Goal
     // I realized I may not need this and I may en up deleting it later
     //public abstract void UpdateEvents();
 
-    public abstract bool IsGoalcomplete();
+    public abstract bool IsGoalComplete();
+
+    public abstract void UpdateGoal();
 }

@@ -13,13 +13,14 @@ class Checklist : Goal
         _target = target;
         _bonusPoints = bonus;
     }
-    public void UpdateEvents()
-    {
 
-    }
-
-    public override bool IsGoalcomplete()
+    public override bool IsGoalComplete()
     {
         return false;
+    }
+
+    public override void UpdateGoal()
+    {
+
     }
 }

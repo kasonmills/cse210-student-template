@@ -100,23 +100,42 @@ class GoalManager
 
     public string GetNameOfGoal()
     {
-        Console.WriteLine("");
-        return "";
+        Console.WriteLine("What is the will be the name of your new goal?\n");
+        string name = Console.ReadLine();
+        return name;
     }
 
     public string GetGoalDetails()
     {
-        return "";
+        Console.WriteLine("how would you describe this goal?\n");
+        string details = Console.ReadLine();
+        return details;
     }
 
-    public int GetPoints()
+    public int GetPoints(bool ifBonus)
     {
-        return 0;
+        string place;
+        if(ifBonus)
+        {
+            Console.WriteLine("how many bonus points will you get once you reach the target?\n");
+            place = Console.ReadLine();
+            int points = int.Parse(place);
+            return points;
+        }
+        else{
+            Console.WriteLine("how many points will you get when you accomplish your goal?\n");
+            place = Console.ReadLine();
+            int points = int.Parse(place);
+            return points;
+        }
     }
 
     public int GetTargetToGetBonus()
     {
-        return 0;
+        Console.WriteLine("How many times to do need to complete your goal to get the bonus?\n");
+        string hold = Console.ReadLine();
+        int target = int.Parse(hold);
+        return target;
     }
     public void NewGoal()
     {
@@ -125,7 +144,7 @@ class GoalManager
         Console.WriteLine("2. Eternal Goal");
         Console.WriteLine("3. Checklist Goal");
 
-        Console.WriteLine("Which type of goal would you like to create? ");
+        Console.WriteLine("Which type of goal would you like to create?\n");
         string input = Console.ReadLine();
         int goalType = int.Parse(input);
 
@@ -134,18 +153,17 @@ class GoalManager
 
             case 1:
                 {
-                    Simple goal = new Simple(GetNameOfGoal(), GetGoalDetails(), GetPoints());
-                    // _goals.add(goal);
+                    _goals.Add(new Simple(GetNameOfGoal(), GetGoalDetails(), GetPoints(false)));
                     break;
                 }
             case 2:
                 {
-                    Eternal goal = new Eternal(GetNameOfGoal(), GetGoalDetails(), GetPoints());
+                    _goals.Add(new Eternal(GetNameOfGoal(), GetGoalDetails(), GetPoints(false)));
                     break;
                 }
             case 3:
                 {
-                    Checklist goal = new Checklist(GetNameOfGoal(), GetGoalDetails(), GetPoints(), GetTargetToGetBonus(), GetPoints());
+                    _goals.Add(new Checklist(GetNameOfGoal(), GetGoalDetails(), GetPoints(false), GetTargetToGetBonus(), GetPoints(true)));
                     break;
                 }
             default:
@@ -174,10 +192,23 @@ class GoalManager
             return;
         }
 
-        Goal selectedGoal = _goals[index];
-        //selectedGoal.UpdateEvents();
-        _score += selectedGoal._points;
-        Console.WriteLine($"Goal updated! Score increased by {selectedGoal._points}.");
+        // I need to be able to specify goals by type so I will know how to update them.
+        switch (_goals[index])
+        {
+            case Simple:
+            {
+                break;
+            }
+            case Eternal:
+            {
+                break;
+            }
+            case Checklist:
+            {
+                break;
+            }
+        }
+        
     }
 
     public void SaveGoals()

@@ -11,8 +11,13 @@ class Simple : Goal
 
     }
 
-    public override bool IsGoalcomplete()
+    public override bool IsGoalComplete()
     {
         return true;
+    }
+
+    public override void UpdateGoal()
+    {
+
     }
 }
