@@ -27,6 +27,7 @@ class Eternal : Goal
         bool complete = IsGoalComplete();
         if (complete)
         {
+            complete = false;
             return points;
         }
         else

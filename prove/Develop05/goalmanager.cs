@@ -163,7 +163,7 @@ class GoalManager
                 }
             case 3:
                 {
-                    _goals.Add(new Checklist(GetNameOfGoal(), GetGoalDetails(), GetPoints(false), GetTargetToGetBonus(), GetPoints(true)));
+                    _goals.Add(new Checklist(GetNameOfGoal(), GetGoalDetails(), GetPoints(false), GetTargetToGetBonus(), GetPoints(true), 0));
                     break;
                 }
             default:
@@ -198,16 +198,19 @@ class GoalManager
             case Simple:
             {
                 _goals[index].UpdateGoal(points);
+                _score += points;
                 break;
             }
             case Eternal:
             {
                 _goals[index].UpdateGoal(points);
+                _score += points;
                 break;
             }
             case Checklist:
             {
                 _goals[index].UpdateGoal(points);
+                _score += points;
                 break;
             }
         }
@@ -263,7 +266,7 @@ class GoalManager
                         int completed = int.Parse(parts[4]);
                         int target = int.Parse(parts[5]);
                         int bonus = int.Parse(parts[6]);
-                        _goals.Add(new Checklist(name, desc, points, target, bonus));
+                        _goals.Add(new Checklist(name, desc, points, target, bonus, completed));
                         break;
                 }
             }
