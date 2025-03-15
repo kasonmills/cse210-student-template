@@ -197,14 +197,17 @@ class GoalManager
         {
             case Simple:
             {
+                _goals[index].UpdateGoal();
                 break;
             }
             case Eternal:
             {
+                _goals[index].UpdateGoal();
                 break;
             }
             case Checklist:
             {
+                _goals[index].UpdateGoal();
                 break;
             }
         }

@@ -16,7 +16,15 @@ class Checklist : Goal
 
     public override bool IsGoalComplete()
     {
-        return false;
+         Console.WriteLine("Did you complete your goal? (please input y or n)\n");
+        string response = Console.ReadLine();
+        if (response == "y")
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public override void UpdateGoal()
