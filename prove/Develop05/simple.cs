@@ -13,7 +13,7 @@ class Simple : Goal
 
     public override bool IsGoalComplete()
     {
-         Console.WriteLine("Did you complete your goal? (please input y or n)\n");
+        Console.WriteLine("Did you complete your goal? (please input y or n)\n");
         string response = Console.ReadLine();
         if (response == "y")
         {
@@ -24,8 +24,8 @@ class Simple : Goal
         }
     }
 
-    public override void UpdateGoal()
+    public override int UpdateGoal(int points)
     {
-
+        return 0;
     }
 }

@@ -22,9 +22,17 @@ class Eternal : Goal
         }
     }
 
-    public override void UpdateGoal()
+    public override int UpdateGoal(int points)
     {
         bool complete = IsGoalComplete();
-        
+        if (complete)
+        {
+            return points;
+        }
+        else
+        {
+            return 0;
+        }
+
     }
 }

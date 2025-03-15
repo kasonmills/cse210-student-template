@@ -19,5 +19,5 @@ abstract class Goal
 
     public abstract bool IsGoalComplete();
 
-    public abstract void UpdateGoal();
+    public abstract int UpdateGoal(int points);
 }

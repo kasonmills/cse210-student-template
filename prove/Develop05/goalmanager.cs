@@ -49,7 +49,7 @@ class GoalManager
                     }
                 case 5:
                     {
-                        RecordEvent();
+                        RecordEvent(points);
                         break;
                     }
                 default:
@@ -174,7 +174,7 @@ class GoalManager
         }
     }
 
-    public void RecordEvent()
+    public void RecordEvent(int points)
     {
         if (_goals.Count == 0)
         {
@@ -197,17 +197,17 @@ class GoalManager
         {
             case Simple:
             {
-                _goals[index].UpdateGoal();
+                _goals[index].UpdateGoal(points);
                 break;
             }
             case Eternal:
             {
-                _goals[index].UpdateGoal();
+                _goals[index].UpdateGoal(points);
                 break;
             }
             case Checklist:
             {
-                _goals[index].UpdateGoal();
+                _goals[index].UpdateGoal(points);
                 break;
             }
         }
