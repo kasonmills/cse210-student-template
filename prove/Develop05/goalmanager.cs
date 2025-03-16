@@ -49,7 +49,7 @@ class GoalManager
                     }
                 case 5:
                     {
-                        RecordEvent(points);
+                        RecordEvent(0);
                         break;
                     }
                 default:
@@ -92,7 +92,7 @@ class GoalManager
             Console.WriteLine("The goals are:");
             foreach (Goal goal in _goals)
             {
-                Console.WriteLine($"{count}. {goal}");
+                Console.WriteLine($"{count}. {_goals[goal].Name}"); count++;
                 count++;
             }
         }
