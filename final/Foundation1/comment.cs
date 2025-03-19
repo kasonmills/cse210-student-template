@@ -1,5 +1,7 @@
 using System;
 
+namespace video;
+
 class Comment
 {
     private string _name;
@@ -18,9 +20,9 @@ class Comment
     {
         return _comment;
     }
-    public void SetCommentorName()
+    private void SetCommentorName()
     {
-
+        _name = _name;
     }
 
     private void SetComment()
