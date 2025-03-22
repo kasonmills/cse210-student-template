@@ -4,7 +4,7 @@ namespace goals;
 
 class Eternal : Goal
 {
-    public Eternal(string name, string description, int points) : base(name, description, points)
+    public Eternal(string name, string description, int points, bool isComplete) : base(name, description, points, isComplete)
     {
 
     }
@@ -22,13 +22,13 @@ class Eternal : Goal
         }
     }
 
-    public override int UpdateGoal(int points)
+    public override int UpdateGoal(int _points)
     {
-        bool complete = IsGoalComplete();
-        if (complete)
+        bool isComplete = IsGoalComplete();
+        if (isComplete)
         {
-            complete = false;
-            return points;
+            isComplete = false;
+            return _points;
         }
         else
         {

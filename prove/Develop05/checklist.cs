@@ -5,11 +5,11 @@ namespace goals;
 
 class Checklist : Goal
 {
-    private int _amountCompleted;
-    private int _target;
-    private int _bonusPoints;
+    public int _amountCompleted;
+    public int _target;
+    public int _bonusPoints;
 
-    public Checklist(string name, string description, int points, int target, int bonus, int amountCompleted) :base(name, description, points)
+    public Checklist(string name, string description, int points, bool isComplete, int target, int bonus, int amountCompleted) :base(name, description, points, isComplete)
     {
         _target = target;
         _bonusPoints = bonus;
@@ -29,20 +29,21 @@ class Checklist : Goal
         }
     }
 
-    public override int UpdateGoal(int points)
+    public override int UpdateGoal(int _points)
     {
-        bool place = IsGoalComplete();
+        bool isComplete = IsGoalComplete();
 
-        if (place)
+        if (isComplete)
         {
-            if(_target > _amountCompleted)
+            if(_target >= _amountCompleted)
             {
-            _amountCompleted++;
-            return points;
+                isComplete = false;
+                _amountCompleted++;
+                return _points;
             }
             else
-            {
-                return _bonusPoints;
+            { 
+                return _points + _bonusPoints;
             }
         }
         else

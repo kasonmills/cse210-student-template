@@ -4,9 +4,8 @@ namespace goals;
 
 class Simple : Goal
 {
-    private bool _isComplete;
 
-    public Simple(string name, string description, int points) :base(name, description, points)
+    public Simple(string name, string description, int points, bool isComplete) :base(name, description, points, isComplete)
     {
 
     }
@@ -24,8 +23,16 @@ class Simple : Goal
         }
     }
 
-    public override int UpdateGoal(int points)
+    public override int UpdateGoal(int _points)
     {
-        return 0;
+        bool isComplete = IsGoalComplete();
+        if(isComplete)
+        {
+            return _points;
+        }
+        else
+        {
+            return 0;
+        }
     }
 }
