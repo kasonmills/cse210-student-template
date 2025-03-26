@@ -1,5 +1,7 @@
 using System;
 
+namespace product;
+
 class Products
 {
     /*
@@ -7,6 +9,52 @@ class Products
     the list of all products available and that will help with a lot for the future of this project.
     */
 
-    List<string> ProductName;
-    List<>
+    public string _ProdName;
+    public string _ID;
+    public double _Price;
+    public double _Quantity;
+    public Products()
+    {
+
+    }
+
+    public void GetProductName()
+    {
+
+    }
+
+    public void SetProductName()
+    {
+
+    }
+
+    public void GetID()
+    {
+
+    }
+
+    public void SetID()
+    {
+
+    }
+
+    public void GetPrice()
+    {
+
+    }
+
+    public void SetPrice()
+    {
+
+    }
+
+    public void GetAmount()
+    {
+
+    }
+
+    public void SetAmount()
+    {
+
+    }
 }
