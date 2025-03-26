@@ -1,8 +1,8 @@
 using System;
 
-namespace product;
+namespace Orders;
 
-class Products
+class Product
 {
     /*
     This class will have to keep track of the different products involves with an individual order. It will also have to handle repeat items and repeat customers. this class will also contain
@@ -13,9 +13,12 @@ class Products
     public string _ID;
     public double _Price;
     public double _Quantity;
-    public Products()
+    public Product(string name, string id, double price, double quanitity)
     {
-
+        _ProdName = name;
+        _ID = id;
+        _Price = price;
+        _Quantity = quanitity;
     }
 
     public void GetProductName()

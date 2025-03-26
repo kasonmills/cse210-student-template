@@ -1,6 +1,6 @@
 using System;
 
-namespace product;
+namespace Orders;
 
 class Customer
 {
@@ -9,30 +9,33 @@ class Customer
     */
 
     public string _CustomerName;
+    Address _address = new Address(address, );
 
-    public Customer()
+
+    public Customer(string name, Address address)
     {
-
+        _CustomerName = name;
+        _address = address;
     }
 
     public void GetName()
     {
-
+        _CustomerName = "Veronica Tibbits";
     }
 
-    public void SetName()
+    public string SetName()
     {
-
+        return _CustomerName;
     }
 
     public void GetAddress()
     {
-
+        _address_ = _address._address;
     }
 
-    public void SetAddress()
+    public string SetAddress()
     {
-
+        return _address_;
     }
 
     public bool LivesInUS()
