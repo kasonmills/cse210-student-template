@@ -11,19 +11,18 @@ class Address
     public string _address;
     public bool _InUS;
 
-    public Address(string address, bool InUS)
+    public Address(string address, bool inUS)
     {
-        // this constructor might be redundant but I don't know yet.
         _address = address;
-        _InUS = InUS;
+        _InUS = inUS;
     }
 
-    public void GetAddress()
+    private void SetAddress()
     {
-        _address = "1234 west st, USA";
+        _address = "1234 west st, USA 0000";
     }
 
-    public string SetAddress()
+    public string GetAddress()
     {
         return _address;
     }

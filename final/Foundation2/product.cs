@@ -13,51 +13,52 @@ class Product
     public string _ID;
     public double _Price;
     public double _Quantity;
-    public Product(string name, string id, double price, double quanitity)
+
+    public Product(string name, string id, double price, double amount)
     {
         _ProdName = name;
         _ID = id;
         _Price = price;
-        _Quantity = quanitity;
+        _Quantity = amount;
     }
 
-    public void GetProductName()
+    public string GetProductName()
     {
-
+        return _ProdName;
     }
 
-    public void SetProductName()
+    private void SetProductName()
     {
+        _ProdName = _ProdName;
+    }   
 
+    public string GetID()
+    {
+        return _ID;
     }
 
-    public void GetID()
+    private void SetID()
     {
-
+        _ID = _ID;
     }
 
-    public void SetID()
+    public double GetPrice()
     {
-
+        return _Price;
     }
 
-    public void GetPrice()
+    private void SetPrice()
     {
-
+        _Price = _Price;
     }
 
-    public void SetPrice()
+    public double GetAmount()
     {
-
+        return _Quantity;
     }
 
-    public void GetAmount()
+    private void SetAmount()
     {
-
-    }
-
-    public void SetAmount()
-    {
-
+        _Quantity = _Quantity;
     }
 }

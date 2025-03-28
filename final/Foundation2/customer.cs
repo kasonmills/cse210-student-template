@@ -9,37 +9,43 @@ class Customer
     */
 
     public string _CustomerName;
-    Address _address = new Address(address, );
-
+    Address _address = new Address();
+    public string add;
 
     public Customer(string name, Address address)
     {
         _CustomerName = name;
         _address = address;
     }
-
-    public void GetName()
+    private void SetName()
     {
         _CustomerName = "Veronica Tibbits";
     }
 
-    public string SetName()
+    public string GetName()
     {
         return _CustomerName;
     }
 
-    public void GetAddress()
+    private void SetAddress()
     {
-        _address_ = _address._address;
+        add = _address.GetAddress();
     }
 
-    public string SetAddress()
+    public string GetAddress()
     {
-        return _address_;
+        return add;
     }
 
     public bool LivesInUS()
     {
-        return true;
+        if(add.Contains("USA"))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
