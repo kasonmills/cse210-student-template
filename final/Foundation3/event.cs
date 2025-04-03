@@ -32,6 +32,6 @@ class Event
     {
         Console.WriteLine($"The event coming up is a ");  // I am not too sure how to display the type of class yet...
         Console.WriteLine($"{_eventName}");
-        Console.WriteLine($"It will be held {_eventDate}\nwe hope to see you there!");
+        Console.WriteLine($"It will be held {_eventDate}\nWe hope to see you there!");
     }
 }

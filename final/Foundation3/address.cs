@@ -4,18 +4,19 @@ namespace events;
 
 class Address
 {
-    public Address()
+    protected string _address;
+    public Address(string address)
     {
-
+        _address = address;
     }
 
-    public string GetAddress()
+    public string GetAddress(string address)
     {
-        return "";
+        return address;
     }
 
     public void SetAddress()
     {
-        
+        // I am not too sure if I even need this method
     }
 }
