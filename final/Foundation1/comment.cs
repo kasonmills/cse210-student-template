@@ -11,12 +11,12 @@ class Comment
         _name = name;
         _comment = comment;
     }
-    private string GetCommentorName()
+    public string GetCommentorName()
     {
         return _name;
     }
 
-    private string GetComment()
+    public string GetComment()
     {
         return _comment;
     }

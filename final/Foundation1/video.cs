@@ -19,13 +19,23 @@ class Video
         return _comments.Count;
     }
 
-    private void SetVideo()
+    public string GetTitle()
     {
-        
+        return _videoTitle;
     }
 
-    private void GetVideo()
+    public string GetCreatorName()
     {
-        
+        return _videoCreator;
+    }
+
+    public int GetLengthOfVideo()
+    {
+        return _lenOfVid;
+    }
+
+    public List<Comment> GetComments()
+    {
+        return _comments;
     }
 }

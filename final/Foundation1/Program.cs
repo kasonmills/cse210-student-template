@@ -38,7 +38,7 @@ class Program
         List<Comment> com4 = new List<Comment>();
         Video video3 = new Video("is it possible to beat minecraft without...", "font-template=here", 45375, com4);
         Comment comment8 = new Comment("woundedlight", "He had me in the first half not going to lie");
-        Comment comment9 = new Comment("", "");
+        Comment comment9 = new Comment("alf", "people really need to go outside and touch grass");
         com4.Add(comment8);
         com4.Add(comment9);
 
@@ -51,7 +51,16 @@ class Program
 
         foreach(Video vid in vids)
         {
-            Console.WriteLine(vid);
+            Console.WriteLine(vid.GetTitle());
+            Console.WriteLine(vid.GetCreatorName());
+            Console.WriteLine(vid.GetLengthOfVideo());
+            Console.WriteLine(vid.GetNumOfComments());
+            com = vid.GetComments();
+            foreach (Comment cim in com)
+            {
+                Console.WriteLine(cim.GetCommentorName());
+                Console.WriteLine(cim.GetComment());
+            }
             // I need a for loop to loop through each video, displaying, name, author, and length
             // then I needs to display the number of contents
             // then I need to loop through each comment on that video
