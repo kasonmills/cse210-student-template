@@ -20,13 +20,4 @@ class Comment
     {
         return _comment;
     }
-    private void SetCommentorName()
-    {
-        _name = _name;
-    }
-
-    private void SetComment()
-    {
-
-    }
 }

@@ -9,14 +9,4 @@ class Address
     {
         _address = address;
     }
-
-    public string GetAddress(string address)
-    {
-        return address;
-    }
-
-    public void SetAddress()
-    {
-        // I am not too sure if I even need this method
-    }
 }

@@ -4,7 +4,6 @@ namespace events;
 
 class Event
 {
-
     protected string _eventName;
     protected string _eventDate;
     protected string _eventTime;
