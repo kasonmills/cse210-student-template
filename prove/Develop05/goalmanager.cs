@@ -7,8 +7,20 @@ namespace goals;
 
 class GoalManager
 {
+    /*
+    this class is the bulk of the program and it does a lot. It is the controller and director
+    of all that is hear
+    */
     private int _score;
     private List<Goal> _goals;
+    public string _name;
+    public string _description;
+    public int _points;
+    public bool _isComplete;       // for Simple
+    public int _amountCompleted;   // for Checklist
+    public int _target;
+    public int _bonusPoints;
+
 
     public GoalManager()
     {
@@ -49,7 +61,7 @@ class GoalManager
                     }
                 case 5:
                     {
-                        RecordEvent(0);
+                        RecordEvent(_points);
                         break;
                     }
                 default:
@@ -92,8 +104,28 @@ class GoalManager
             Console.WriteLine("The goals are:");
             foreach (Goal goal in _goals)
             {
-                Console.WriteLine($"{count}. {_goals[goal].Name}"); count++;
-                count++;
+                switch (goal)
+                {
+                    case Simple:
+                        {
+                            Console.WriteLine($"{count}. {goal._name}");
+                            count++;
+                            break;
+                        }
+                    case Eternal:
+                        {
+                            Console.WriteLine($"{count}. {goal._name}");
+                            count++;
+                            break;
+                        }
+                    case Checklist:
+                        {
+                            Console.WriteLine($"{count}. {goal._name}");
+                            count++;
+                            break;
+                        }
+                }
+
             }
         }
     }
@@ -115,14 +147,15 @@ class GoalManager
     public int GetPoints(bool ifBonus)
     {
         string place;
-        if(ifBonus)
+        if (ifBonus)
         {
             Console.WriteLine("how many bonus points will you get once you reach the target?\n");
             place = Console.ReadLine();
             int points = int.Parse(place);
             return points;
         }
-        else{
+        else
+        {
             Console.WriteLine("how many points will you get when you accomplish your goal?\n");
             place = Console.ReadLine();
             int points = int.Parse(place);
@@ -153,17 +186,17 @@ class GoalManager
 
             case 1:
                 {
-                    _goals.Add(new Simple(GetNameOfGoal(), GetGoalDetails(), GetPoints(false)));
+                    _goals.Add(new Simple(GetNameOfGoal(), GetGoalDetails(), GetPoints(false), false));
                     break;
                 }
             case 2:
                 {
-                    _goals.Add(new Eternal(GetNameOfGoal(), GetGoalDetails(), GetPoints(false)));
+                    _goals.Add(new Eternal(GetNameOfGoal(), GetGoalDetails(), GetPoints(false), false));
                     break;
                 }
             case 3:
                 {
-                    _goals.Add(new Checklist(GetNameOfGoal(), GetGoalDetails(), GetPoints(false), GetTargetToGetBonus(), GetPoints(true), 0));
+                    _goals.Add(new Checklist(GetNameOfGoal(), GetGoalDetails(), GetPoints(false), false, GetTargetToGetBonus(), GetPoints(true), 0));
                     break;
                 }
             default:
@@ -196,25 +229,25 @@ class GoalManager
         switch (_goals[index])
         {
             case Simple:
-            {
-                _goals[index].UpdateGoal(points);
-                _score += points;
-                break;
-            }
+                {
+                    _goals[index].UpdateGoal(_points);
+                    _score += _points;
+                    break;
+                }
             case Eternal:
-            {
-                _goals[index].UpdateGoal(points);
-                _score += points;
-                break;
-            }
+                {
+                    _goals[index].UpdateGoal(_points);
+                    _score += _points;
+                    break;
+                }
             case Checklist:
-            {
-                _goals[index].UpdateGoal(points);
-                _score += points;
-                break;
-            }
+                {
+                    _goals[index].UpdateGoal(_points);
+                    _score += _points;
+                    break;
+                }
         }
-        
+
     }
 
     public void SaveGoals()
@@ -224,11 +257,31 @@ class GoalManager
 
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
-            outputFile.WriteLine(_score);
+            outputFile.WriteLine($"SCORE,{_score}");
 
-            outputFile.WriteLine(_goals);
+            foreach (Goal goal in _goals)
+            {
+                switch (goal)
+                {
+                    case Simple simple:
+                        outputFile.WriteLine($"Simple,{simple._name},{simple._description},{simple._points},{simple._isComplete}");
+                        break;
+
+                    case Eternal eternal:
+                        outputFile.WriteLine($"Eternal,{eternal._name},{eternal._description},{eternal._points}, {eternal._isComplete}");;
+                        break;
+
+                    case Checklist checklist:
+                        outputFile.WriteLine($"Checklist,{checklist._name},{checklist._description},{checklist._points}, {checklist._isComplete},{checklist._target},{checklist._bonusPoints}, {checklist._amountCompleted}");
+                        break;
+                }
+            }
         }
+
+        Console.WriteLine("Goals saved successfully!");
     }
+
+
 
     public void LoadGoals()
     {
@@ -252,21 +305,22 @@ class GoalManager
                 string name = parts[1];
                 string desc = parts[2];
                 int points = int.Parse(parts[3]);
+                bool isComplete = bool.Parse(parts[4]);
 
                 switch (type)
                 {
                     case "Simple":
-                        bool isComplete = bool.Parse(parts[4]);
-                        _goals.Add(new Simple(name, desc, points));
+                        
+                        _goals.Add(new Simple(name, desc, points, isComplete));
                         break;
                     case "Eternal":
-                        _goals.Add(new Eternal(name, desc, points));
+                        _goals.Add(new Eternal(name, desc, points, isComplete));
                         break;
                     case "Checklist":
-                        int completed = int.Parse(parts[4]);
+                        int completed = int.Parse(parts[7]);
                         int target = int.Parse(parts[5]);
                         int bonus = int.Parse(parts[6]);
-                        _goals.Add(new Checklist(name, desc, points, target, bonus, completed));
+                        _goals.Add(new Checklist(name, desc, points, isComplete, target, bonus, completed));
                         break;
                 }
             }
