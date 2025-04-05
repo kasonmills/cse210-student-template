@@ -9,7 +9,6 @@ class Address
     public string _state;
     public string _zipCode;
     public string _country;
-    public bool _InUS;
 
     public Address(string street, string city, string state, string country, string zipCode)
     {
@@ -47,6 +46,6 @@ class Address
 
     public string GetAddress()
     {
-        return GetStreet() + GetCity() + GetState() + GetCountry() + GetZipCode();
+        return GetStreet() +" " + GetCity() + " " + GetState() + ", " + GetCountry() + " " + GetZipCode();
     }
 }

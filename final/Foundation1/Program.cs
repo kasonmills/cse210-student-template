@@ -21,7 +21,7 @@ class Program
         Comment comment2 = new Comment("jack", "who decided it needed to have shaky cam?");
         Comment comment3 = new Comment("gorilla", "bananas are ok");
         com2.Add(comment1);
-        com2.Add(comment1);
+        com2.Add(comment2);
         com2.Add(comment3);
 
         List<Comment> com3 = new List<Comment>();
@@ -54,7 +54,7 @@ class Program
             Console.WriteLine(vid.GetTitle());
             Console.WriteLine(vid.GetCreatorName());
             Console.WriteLine(vid.GetLengthOfVideo());
-            Console.WriteLine(vid.GetNumOfComments());
+            Console.WriteLine("Number of comments: " + vid.GetNumOfComments());
             com = vid.GetComments();
             foreach (Comment cim in com)
             {
@@ -64,6 +64,7 @@ class Program
             // I need a for loop to loop through each video, displaying, name, author, and length
             // then I needs to display the number of contents
             // then I need to loop through each comment on that video
+            Console.WriteLine("");
         }
     }
 }

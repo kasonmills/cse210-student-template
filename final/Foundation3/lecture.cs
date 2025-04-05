@@ -13,13 +13,13 @@ class Lecture : Event
         _capacity = cap;
     }
 
-    public void DisplayEventInfoFull(string name, string date, string time, string address, string description, string speaker, int cap)
+    public void DisplayEventInfoFull()
     {
-        Console.WriteLine($"We are excited to announce an upcoming event! {name}.");
-        Console.WriteLine($"This event will feature {speaker} as our special guest.");
-        Console.WriteLine($"{description}");
-        Console.WriteLine($"They will be speaking {date} at {time}.");
-        Console.WriteLine($"They will be speaking at {address} which only holds up to {cap} people so make sure to get their early to get a seat.");
+        Console.WriteLine($"We are excited to announce an upcoming event! {_eventName}.");
+        Console.WriteLine($"This event will feature {_speakerName} as our special guest.");
+        Console.WriteLine($"{_eventDescription}");
+        Console.WriteLine($"They will be speaking {_eventDate} at {_eventTime}.");
+        Console.WriteLine($"They will be speaking at {_eventAddress} which only holds up to {_capacity} people so make sure to get their early to get a seat.");
         Console.WriteLine($"We hope to see you there!");
     }
 }

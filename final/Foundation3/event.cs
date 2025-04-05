@@ -19,7 +19,7 @@ class Event
         _eventDescription = description;
     }
 
-    public void DisplayEventInfoStandard(string _eventName, string _eventDate, string _eventTime, string _eventAddress, string _eventDescription)
+    public void DisplayEventInfoStandard()
     {
         Console.WriteLine($"Join us at the {_eventName}!");
         Console.WriteLine($"{_eventDescription}");
@@ -27,10 +27,9 @@ class Event
         Console.WriteLine($"The address is {_eventAddress}\n");
     }
 
-    public void DisplayEventInfoBrief(string _eventName, string _eventDate)
+    public void DisplayEventInfoBrief()
     {
-        Console.WriteLine($"The event coming up is a ");  // I am not too sure how to display the type of class yet...
-        Console.WriteLine($"{_eventName}");
+        Console.WriteLine($"The event coming up is {_eventName}");
         Console.WriteLine($"It will be held {_eventDate}\nWe hope to see you there!");
     }
 }
