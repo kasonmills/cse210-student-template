@@ -2,11 +2,16 @@ using System;
 
 namespace events;
 
-class Reception
+class Reception : Event
 {
     protected bool _RSVP;
-    public Reception() :base()
+    public Reception(string name, string date, string time, string address, string description, bool reserve) :base(name, date, time, address, description)
     {
+        _RSVP = reserve;
+    }
 
+    public void DisplayEventInfoFull()
+    {
+        
     }
 }

@@ -13,5 +13,6 @@ class Outdoor : Event
     public void DisplayEventInfoFull()
     {
         
+        
     }
 }

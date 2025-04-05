@@ -8,28 +8,55 @@ class Address
     this class only has to worry about formatting the address and whether or not they live in the USA.
     */
 
-    public string _address;
+    public string _street;
+    public string _city;
+    public string _state;
+    public string _zipCode;
+    public string _country;
     public bool _InUS;
 
-    public Address(string address, bool inUS)
+    public Address(string street, string city, string state, string country, string zipCode)
     {
-        _address = address;
-        _InUS = inUS;
+        _street = street;
+        _city = city;
+        _state = state;
+        _country = country;
+        _zipCode = zipCode;
     }
 
-    private void SetAddress()
+    public string GetStreet()
     {
-        _address = "1234 west st, USA 0000";
+        return _street;
+    }
+
+    public string GetCity()
+    {
+        return _city;
+    }
+
+    public string GetState()
+    {
+        return _state;
+    }
+
+    public string GetCountry()
+    {
+        return _country;
+    }
+
+    public string GetZipCode()
+    {
+        return _zipCode;
     }
 
     public string GetAddress()
     {
-        return _address;
+        return GetStreet() + GetCity() + GetState() + GetCountry() + GetZipCode();
     }
 
-    public bool IsAddressUS(string _address)
+    public bool IsAddressUS(string _country)
     {
-        if(_address.Contains("USA"))
+        if(_country.Contains("USA"))
         {
             return true;
         }

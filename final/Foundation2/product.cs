@@ -25,11 +25,6 @@ class Product
     public string GetProductName()
     {
         return _ProdName;
-    }
-
-    private void SetProductName()
-    {
-        _ProdName = _ProdName;
     }   
 
     public string GetID()
@@ -37,28 +32,12 @@ class Product
         return _ID;
     }
 
-    private void SetID()
-    {
-        _ID = _ID;
-    }
-
     public double GetPrice()
     {
         return _Price;
     }
-
-    private void SetPrice()
-    {
-        _Price = _Price;
-    }
-
     public double GetAmount()
     {
         return _Quantity;
-    }
-
-    private void SetAmount()
-    {
-        _Quantity = _Quantity;
     }
 }
