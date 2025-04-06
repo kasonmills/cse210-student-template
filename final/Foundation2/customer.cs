@@ -28,9 +28,9 @@ class Customer
         return add;
     }
 
-    public bool LivesInUS()
+    public bool LivesInUS(string _country)
     {
-        if(_address._InUS)
+        if(_country.Contains("USA"))
         {
             return true;
         }

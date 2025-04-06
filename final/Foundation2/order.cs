@@ -13,24 +13,22 @@ class Order
         _products = products;
     }
 
-    public double CalculateOrderTotal()
+    public double CalculateOrderTotal(double shipping)
     {
         double total = 0;
         double PriceOfUnits;
-        double Shipping = CalculateShippingCost();
         foreach(Product tot in _products)
         {
             PriceOfUnits = tot._Price * tot._Quantity;
             total += PriceOfUnits;
         }
-        total += Shipping;
+        total += shipping;
         return total;
     }
 
-    public double CalculateShippingCost()
+    public double CalculateShippingCost(bool us)
     {
-        Customer customer = new Customer();
-        if()
+        if(us == true)
         {
             return 5;
         }
@@ -48,8 +46,8 @@ class Order
         }
     }
 
-    public void DisplayShippingLabel()
+    public void DisplayShippingLabel(string name, string address)
     {
-        Console.WriteLine($"{customer._CustomerName}\n{customer.add}");
+        Console.WriteLine($"{name}\n{address}");
     }
 }

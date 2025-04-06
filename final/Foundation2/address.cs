@@ -51,10 +51,10 @@ class Address
 
     public string GetAddress()
     {
-        return GetStreet() + GetCity() + GetState() + GetCountry() + GetZipCode();
+        return GetStreet() + " " + GetCity() + " " + GetState() + ", " + GetCountry() + " " +GetZipCode();
     }
 
-    public bool IsAddressUS(string _country)
+    public bool IsUS(string _country)
     {
         if(_country.Contains("USA"))
         {

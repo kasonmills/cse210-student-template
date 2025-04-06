@@ -1,5 +1,7 @@
 using System;
 
+namespace workouts;
+
 class Program
 {
     static void Main(string[] args)
